@@ -6,12 +6,14 @@
 #include<QDir>
 #include<QDebug>
 #include<QTextStream>
+#include<vector>
 
 using namespace std;
 
 class File_Mangment
 {
 public:
+    static vector<string> data_file;
     File_Mangment();
     void write();
     static QString read();
