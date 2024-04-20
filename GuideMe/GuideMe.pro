@@ -10,11 +10,13 @@ CONFIG += c++17
 
 SOURCES += \
     file_mangment.cpp \
+    filesystem.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     file_mangment.h \
+    filesystem.h \
     mainwindow.h
 
 FORMS += \
@@ -24,3 +26,6 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    data.bin
