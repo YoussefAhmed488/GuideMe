@@ -10,11 +10,13 @@ CONFIG += c++17
 
 SOURCES += \
     file_mangment.cpp \
+    graph.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     file_mangment.h \
+    graph.h \
     mainwindow.h
 
 FORMS += \
