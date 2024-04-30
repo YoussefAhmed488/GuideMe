@@ -75,7 +75,7 @@ void Graph::dfs(int node, int dest, unordered_map<int, vector<pair<int, edge>>>&
     }
     path.pop_back();
 }
-vector<vector<pair<int, edge>>> Graph::findallpasses(int source, int dest) {
+vector<vector<pair<int, edge>>> Graph::find_all_passes(int source, int dest) {
     vector<vector<pair<int, edge>>> paths;
     vector<pair<int, edge>> path;
     unordered_set<int> visited;
