@@ -12,6 +12,7 @@ using namespace std;
 struct edge {
     char type1;
     char type2;
+    //vector<pair<string,int>>
     int buscost;
     int metrocost;
 };
@@ -24,7 +25,7 @@ public:
     Graph();
     void setData();
     void dfs(int node, int dest, unordered_map<int, vector<pair<int, edge>>>& graph, vector<pair<int, edge>>& path, vector<vector<pair<int, edge>>>& paths, unordered_set<int>& visited);
-    vector<vector<pair<int, edge>>> findallpasses(int source, int dest);
+    vector<vector<pair<int, edge>>> find_all_passes(int source, int dest);
 };
 
 #endif // GRAPH_H
