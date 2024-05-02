@@ -35,8 +35,9 @@ void FileSystem::deserialize(const string &filename)
     instance = &obj;
 }
 
-void FileSystem::serialize(const string &filename)
+void FileSystem::serialize() //(const string &filename)
 {
+    string filename = "data.bin";
     ofstream file(filename, ios::binary);
     if (!file.is_open())
     {
@@ -47,13 +48,24 @@ void FileSystem::serialize(const string &filename)
     }
     file.write(reinterpret_cast<const char *>(this),
                sizeof(*this));
-    file.close();   
+    file.close();
     cout << "Object serialized successfully." << endl;
+    // QFile file("data.dat");
+//     if (file.open(QIODevice::WriteOnly)) {
+//         QDataStream out(&file);
+//         out << instance;
+//         file.close();
+//         qDebug() << "Objects serialized successfully.";
+//     } else {
+//         qWarning() << "Failed to open file for writing.";
+//     }
+// }
 }
 
 void FileSystem::callOnExit()
 {
-    serialize("data.bin");
+    cout << "good bye" << endl;
+    instance->serialize();
 }
 
 

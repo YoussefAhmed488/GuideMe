@@ -21,9 +21,10 @@ private:
     FileSystem();
     static FileSystem* instance;
 public:
+    //int magic;
     static FileSystem* getInstance();
-    static void deserialize(const string& filename);
-    static void serialize(const string& filename);
+    void deserialize(const string& filename);
+    void serialize();//(const string& filename);
     // void serialize(const string& filename)
     // {
     //     ofstream file(filename, ios::binary);
