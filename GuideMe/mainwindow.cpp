@@ -74,7 +74,14 @@ void MainWindow::on_pushButton_clicked()
     bool b = true;
 
     on_priceEdit_copyAvailable(b);
+
+    QString startLocation = on_StartCombo_activated(ui->StartCombo->currentIndex());
+    QString destinationLocation = on_DestinationCombo_activated(ui->DestinationCombo->currentIndex());
+    if(startLocation == destinationLocation){
+        ui->statusbar->showMessage("PLEASE CHOOSE DIFFERENT START AND DESTINATION");
+    }
     //the rest of the save and the opening of the second window
+
 }
 
 
