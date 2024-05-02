@@ -1,0 +1,531 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Edit_Edge</class>
+ <widget class="QDialog" name="Edit_Edge">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>343</width>
+    <height>347</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QWidget" name="FormWidget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>341</width>
+     <height>345</height>
+    </rect>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #6c7a89, stop: 1 #bdc3c7);</string>
+   </property>
+   <layout class="QFormLayout" name="formLayout">
+    <property name="sizeConstraint">
+     <enum>QLayout::SetDefaultConstraint</enum>
+    </property>
+    <property name="horizontalSpacing">
+     <number>8</number>
+    </property>
+    <property name="verticalSpacing">
+     <number>10</number>
+    </property>
+    <property name="leftMargin">
+     <number>20</number>
+    </property>
+    <property name="rightMargin">
+     <number>20</number>
+    </property>
+    <item row="0" column="0">
+     <widget class="QLabel" name="label">
+      <property name="styleSheet">
+       <string notr="true">font: 600 10pt &quot;Cascadia Mono SemiBold&quot;; color:black;
+</string>
+      </property>
+      <property name="text">
+       <string>From:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QComboBox" name="FromcomboBox">
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(143, 143, 143); color: black;
+font: 600 10pt &quot;Cascadia Mono SemiBold&quot;;
+</string>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="label_2">
+      <property name="styleSheet">
+       <string notr="true">font: 600 10pt &quot;Cascadia Mono SemiBold&quot;; color:black;</string>
+      </property>
+      <property name="text">
+       <string>To:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QComboBox" name="TocomboBox">
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(143, 143, 143); color:black;
+font: 600 10pt &quot;Cascadia Mono SemiBold&quot;;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QWidget" name="TrainWidget" native="true">
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <property name="spacing">
+        <number>8</number>
+       </property>
+       <property name="sizeConstraint">
+        <enum>QLayout::SetDefaultConstraint</enum>
+       </property>
+       <property name="leftMargin">
+        <number>5</number>
+       </property>
+       <property name="topMargin">
+        <number>5</number>
+       </property>
+       <property name="rightMargin">
+        <number>5</number>
+       </property>
+       <property name="bottomMargin">
+        <number>5</number>
+       </property>
+       <item>
+        <widget class="QToolButton" name="TrainX">
+         <property name="styleSheet">
+          <string notr="true">
+background-color: rgb(255, 0, 0);</string>
+         </property>
+         <property name="text">
+          <string>✖</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_5">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(220, 220, 220);
+font: 600 9pt &quot;Cascadia Mono SemiBold&quot;;</string>
+         </property>
+         <property name="text">
+          <string>Train</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="TrainText">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(220, 220, 220);
+font: 600 9pt &quot;Cascadia Mono SemiBold&quot;;</string>
+         </property>
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QWidget" name="BusWidget" native="true">
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <property name="spacing">
+        <number>8</number>
+       </property>
+       <property name="sizeConstraint">
+        <enum>QLayout::SetDefaultConstraint</enum>
+       </property>
+       <property name="leftMargin">
+        <number>5</number>
+       </property>
+       <property name="topMargin">
+        <number>5</number>
+       </property>
+       <property name="rightMargin">
+        <number>5</number>
+       </property>
+       <property name="bottomMargin">
+        <number>5</number>
+       </property>
+       <item>
+        <widget class="QToolButton" name="BusX">
+         <property name="styleSheet">
+          <string notr="true">background-color:rgb(255, 0, 0);</string>
+         </property>
+         <property name="text">
+          <string>✖</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_4">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(220, 220, 220);
+font: 600 9pt &quot;Cascadia Mono SemiBold&quot;;</string>
+         </property>
+         <property name="text">
+          <string>Bus</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="BusText">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(220, 220, 220);
+font: 600 9pt &quot;Cascadia Mono SemiBold&quot;;</string>
+         </property>
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="4" column="1">
+     <widget class="QWidget" name="MicrobusWidget" native="true">
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <property name="spacing">
+        <number>8</number>
+       </property>
+       <property name="sizeConstraint">
+        <enum>QLayout::SetDefaultConstraint</enum>
+       </property>
+       <property name="leftMargin">
+        <number>5</number>
+       </property>
+       <property name="topMargin">
+        <number>5</number>
+       </property>
+       <property name="rightMargin">
+        <number>5</number>
+       </property>
+       <property name="bottomMargin">
+        <number>5</number>
+       </property>
+       <item>
+        <widget class="QToolButton" name="MicrobusX">
+         <property name="styleSheet">
+          <string notr="true">background-color:rgb(255, 0, 0);</string>
+         </property>
+         <property name="text">
+          <string>✖</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_3">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(220, 220, 220);
+font: 600 9pt &quot;Cascadia Mono SemiBold&quot;;</string>
+         </property>
+         <property name="text">
+          <string>Microbus</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="MicrobusText">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(220, 220, 220);
+font: 600 9pt &quot;Cascadia Mono SemiBold&quot;;</string>
+         </property>
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="5" column="1">
+     <widget class="QWidget" name="MetroWidget" native="true">
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <property name="spacing">
+        <number>8</number>
+       </property>
+       <property name="sizeConstraint">
+        <enum>QLayout::SetDefaultConstraint</enum>
+       </property>
+       <property name="leftMargin">
+        <number>5</number>
+       </property>
+       <property name="topMargin">
+        <number>5</number>
+       </property>
+       <property name="rightMargin">
+        <number>5</number>
+       </property>
+       <property name="bottomMargin">
+        <number>5</number>
+       </property>
+       <item>
+        <widget class="QToolButton" name="MetroX">
+         <property name="styleSheet">
+          <string notr="true">background-color:rgb(255, 0, 0);</string>
+         </property>
+         <property name="text">
+          <string>✖</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_6">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(220, 220, 220);
+font: 600 9pt &quot;Cascadia Mono SemiBold&quot;;</string>
+         </property>
+         <property name="text">
+          <string>Metro</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="MetroText">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(220, 220, 220);
+font: 600 9pt &quot;Cascadia Mono SemiBold&quot;;</string>
+         </property>
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="6" column="1">
+     <widget class="QWidget" name="UberWidget" native="true">
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_5">
+       <property name="spacing">
+        <number>8</number>
+       </property>
+       <property name="sizeConstraint">
+        <enum>QLayout::SetDefaultConstraint</enum>
+       </property>
+       <property name="leftMargin">
+        <number>5</number>
+       </property>
+       <property name="topMargin">
+        <number>5</number>
+       </property>
+       <property name="rightMargin">
+        <number>5</number>
+       </property>
+       <property name="bottomMargin">
+        <number>5</number>
+       </property>
+       <item>
+        <widget class="QToolButton" name="UberX">
+         <property name="styleSheet">
+          <string notr="true">background-color:rgb(255, 0, 0);</string>
+         </property>
+         <property name="text">
+          <string>✖</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_7">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(220, 220, 220);
+font: 600 9pt &quot;Cascadia Mono SemiBold&quot;;</string>
+         </property>
+         <property name="text">
+          <string>Uber</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="UberText">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(220, 220, 220);
+font: 600 9pt &quot;Cascadia Mono SemiBold&quot;;</string>
+         </property>
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="7" column="0">
+     <widget class="QToolButton" name="AddButton">
+      <property name="maximumSize">
+       <size>
+        <width>22</width>
+        <height>22</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:rgb(0, 85, 127); color:white;
+font: 600 9pt &quot;Cascadia Mono SemiBold&quot;;</string>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="1">
+     <widget class="QWidget" name="AddWidget" native="true">
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_6">
+       <property name="spacing">
+        <number>8</number>
+       </property>
+       <property name="sizeConstraint">
+        <enum>QLayout::SetDefaultConstraint</enum>
+       </property>
+       <property name="leftMargin">
+        <number>5</number>
+       </property>
+       <property name="topMargin">
+        <number>5</number>
+       </property>
+       <property name="rightMargin">
+        <number>5</number>
+       </property>
+       <property name="bottomMargin">
+        <number>5</number>
+       </property>
+       <item>
+        <widget class="QComboBox" name="AddcomboBox">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(143, 143, 143); color:black;
+font: 600 10pt &quot;Cascadia Mono SemiBold&quot;;</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="AddText">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(220, 220, 220);
+font: 600 9pt &quot;Cascadia Mono SemiBold&quot;;</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="8" column="1">
+     <widget class="QPushButton" name="SubmitButton">
+      <property name="styleSheet">
+       <string notr="true">background-color:rgb(181, 0, 0); color:white; 
+font: 600 10pt &quot;Cascadia Mono SemiBold&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Submit</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="0">
+     <widget class="QPushButton" name="UpdateButton">
+      <property name="styleSheet">
+       <string notr="true">background-color:rgb(255, 0, 0); color: white;
+font: 600 10pt &quot;Cascadia Mono SemiBold&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Add/Update</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="0">
+     <widget class="QPushButton" name="NextButton">
+      <property name="styleSheet">
+       <string notr="true">background-color:rgb(0, 85, 127); color:white;
+font: 600 10pt &quot;Cascadia Mono SemiBold&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Next</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="label_8">
+      <property name="styleSheet">
+       <string notr="true">visibility: hidden;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="label_9">
+      <property name="styleSheet">
+       <string notr="true">visibility: hidden;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0">
+     <widget class="QLabel" name="label_10">
+      <property name="styleSheet">
+       <string notr="true">visibility: hidden;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0">
+     <widget class="QLabel" name="label_11">
+      <property name="styleSheet">
+       <string notr="true">visibility: hidden;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

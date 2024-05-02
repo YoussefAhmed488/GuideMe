@@ -10,6 +10,7 @@ CONFIG += c++17
 
 SOURCES += \
     edge.cpp \
+    edit_edge.cpp \
     file_mangment.cpp \
     graph.cpp \
     main.cpp \
@@ -17,14 +18,22 @@ SOURCES += \
 
 HEADERS += \
     edge.h \
+    edit_edge.h \
     file_mangment.h \
     graph.h \
     mainwindow.h
 
 FORMS += \
+    edit_edge.ui \
     mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    C:/Users/Youssef Mohsen/Desktop/edit_icon.jpg
+
+RESOURCES += \
+    assets.qrc
