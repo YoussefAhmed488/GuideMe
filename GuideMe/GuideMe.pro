@@ -10,11 +10,13 @@ CONFIG += c++17
 
 SOURCES += \
     file_mangment.cpp \
+    filereader.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     file_mangment.h \
+    filereader.h \
     mainwindow.h
 
 FORMS += \
@@ -26,4 +28,4 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES += \
-    data.bin
+    input.txt

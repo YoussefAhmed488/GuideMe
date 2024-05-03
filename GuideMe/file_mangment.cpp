@@ -1,5 +1,7 @@
 #include "file_mangment.h"
 #include <string>
+#include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -38,6 +40,19 @@ QString File_Mangment::read()
             file_data += s;
             data_file[i] = s.toStdString();
         }
+
+        for(string c : data_file)
+            cout << c << endl;
     }
     return file_data;
 }
+
+
+
+
+
+
+
+
+
+
