@@ -2,6 +2,14 @@
 #include <fstream>
 #include <string>
 #include <iostream>
+#include <QApplication>
+//#include<bits\stdc++.h>
+#include<QFile>
+#include<QTextStream>
+#include<QMessageBox>
+#include <QCoreApplication>
+#include <QString>
+#include <QDebug>
 
 using namespace std;
 
@@ -10,27 +18,23 @@ FileReader::FileReader()
 
 }
 
-void FileReader::readFile(string fileName)
+void FileReader::readFile()
 {
-    ifstream file(fileName);
+    ifstream file(QCoreApplication::applicationDirPath().toStdString() + "/input.txt");
     string content;
-    //file.open(fileName);
-    if (file.is_open())
-    {
-        string line;
-        while (getline(file, line))
-        {
-            content += line + "\n";
+
+    if (file.is_open()) { // Check if file is open
+        std::string line;
+        while (std::getline(file, line)) { // Read the file line by line
+            content += line + "\n"; // Append each line to the content string
         }
-        file.close();
-    }
-    else
-    {
-        cerr << "Unable to open file"; // Error if unable to open file
-        return;
+        file.close(); // Close the file
+    } else {
+        std::cerr << "Unable to open file"; // Error if unable to open file
+        //return 1;
     }
 
-    cout << "Content of the file:\n" << content << endl; // Output the content
+    std::cout << "Content of the file:\n" << content << std::endl;
 }
 
 
