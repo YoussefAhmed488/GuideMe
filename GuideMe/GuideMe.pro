@@ -12,6 +12,7 @@ SOURCES += \
     edge.cpp \
     file_mangment.cpp \
     graph.cpp \
+    filereader.cpp \
     main.cpp \
     mainwindow.cpp
 
@@ -19,6 +20,7 @@ HEADERS += \
     edge.h \
     file_mangment.h \
     graph.h \
+    filereader.h \
     mainwindow.h
 
 FORMS += \
@@ -28,3 +30,6 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    input.txt
