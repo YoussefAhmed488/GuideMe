@@ -33,3 +33,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 DISTFILES += \
     input.txt
+RESOURCES += \
+    rec.qrc
+
+DISTFILES +=

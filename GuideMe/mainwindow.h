@@ -17,6 +17,24 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+
+
+    float on_priceEdit_copyAvailable(bool b);
+
+
+    void on_pushButton_clicked();
+
+  //  void on_StartCombo_currentTextChanged(const QString &arg1);
+
+    QString on_StartCombo_activated(int index);
+
+    QString on_DestinationCombo_activated(int index);
+
+    void on_BfsRB_clicked();
+
+    void on_DfsRB_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
