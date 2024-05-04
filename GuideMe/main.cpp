@@ -27,6 +27,7 @@ int main(int argc, char *argv[])
     // for (int var = 0; var < File_Mangment().data_file.size(); ++var) {
     //     cout << File_Mangment().data_file[var]<<'\n';
     // }
+    w.show();
     FileReader f;
     f.readFile();
     return a.exec();

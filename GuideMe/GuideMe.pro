@@ -39,8 +39,7 @@ DISTFILES += \
 RESOURCES += \
     rec.qrc
 
-DISTFILES +=
-    C:/Users/Youssef Mohsen/Desktop/edit_icon.jpg
+#DISTFILES +=
+ #   C:/Users/Youssef Mohsen/Desktop/edit_icon.jpg
 
-RESOURCES += \
-    assets.qrc
+RESOURCES +=
