@@ -10,6 +10,7 @@ CONFIG += c++17
 
 SOURCES += \
     edge.cpp \
+    edit_edge.cpp \
     file_mangment.cpp \
     graph.cpp \
     filereader.cpp \
@@ -18,12 +19,14 @@ SOURCES += \
 
 HEADERS += \
     edge.h \
+    edit_edge.h \
     file_mangment.h \
     graph.h \
     filereader.h \
     mainwindow.h
 
 FORMS += \
+    edit_edge.ui \
     mainwindow.ui
 
 # Default rules for deployment.
@@ -37,3 +40,7 @@ RESOURCES += \
     rec.qrc
 
 DISTFILES +=
+    C:/Users/Youssef Mohsen/Desktop/edit_icon.jpg
+
+RESOURCES += \
+    assets.qrc
