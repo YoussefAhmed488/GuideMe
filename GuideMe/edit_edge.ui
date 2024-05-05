@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>343</width>
-    <height>347</height>
+    <width>424</width>
+    <height>385</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,8 +18,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>341</width>
-     <height>345</height>
+     <width>420</width>
+     <height>380</height>
     </rect>
    </property>
    <property name="autoFillBackground">
@@ -44,10 +44,11 @@
     <property name="rightMargin">
      <number>20</number>
     </property>
-    <item row="0" column="0">
+    <item row="1" column="0">
      <widget class="QLabel" name="label">
       <property name="styleSheet">
        <string notr="true">font: 600 10pt &quot;Cascadia Mono SemiBold&quot;; color:black;
+background-color: rgba(255, 255, 255, 0);
 </string>
       </property>
       <property name="text">
@@ -55,7 +56,7 @@
       </property>
      </widget>
     </item>
-    <item row="0" column="1">
+    <item row="1" column="1">
      <widget class="QComboBox" name="FromcomboBox">
       <property name="autoFillBackground">
        <bool>false</bool>
@@ -70,17 +71,19 @@ font: 600 10pt &quot;Cascadia Mono SemiBold&quot;;
       </property>
      </widget>
     </item>
-    <item row="1" column="0">
+    <item row="2" column="0">
      <widget class="QLabel" name="label_2">
       <property name="styleSheet">
-       <string notr="true">font: 600 10pt &quot;Cascadia Mono SemiBold&quot;; color:black;</string>
+       <string notr="true">font: 600 10pt &quot;Cascadia Mono SemiBold&quot;; color:black;
+background-color: rgba(255, 255, 255, 0);
+</string>
       </property>
       <property name="text">
        <string>To:</string>
       </property>
      </widget>
     </item>
-    <item row="1" column="1">
+    <item row="2" column="1">
      <widget class="QComboBox" name="TocomboBox">
       <property name="autoFillBackground">
        <bool>false</bool>
@@ -91,7 +94,7 @@ font: 600 10pt &quot;Cascadia Mono SemiBold&quot;;</string>
       </property>
      </widget>
     </item>
-    <item row="2" column="1">
+    <item row="3" column="1">
      <widget class="QWidget" name="TrainWidget" native="true">
       <property name="autoFillBackground">
        <bool>false</bool>
@@ -154,7 +157,7 @@ font: 600 9pt &quot;Cascadia Mono SemiBold&quot;;</string>
       </layout>
      </widget>
     </item>
-    <item row="3" column="1">
+    <item row="4" column="1">
      <widget class="QWidget" name="BusWidget" native="true">
       <property name="styleSheet">
        <string notr="true"/>
@@ -213,7 +216,7 @@ font: 600 9pt &quot;Cascadia Mono SemiBold&quot;;</string>
       </layout>
      </widget>
     </item>
-    <item row="4" column="1">
+    <item row="5" column="1">
      <widget class="QWidget" name="MicrobusWidget" native="true">
       <property name="styleSheet">
        <string notr="true"/>
@@ -272,7 +275,7 @@ font: 600 9pt &quot;Cascadia Mono SemiBold&quot;;</string>
       </layout>
      </widget>
     </item>
-    <item row="5" column="1">
+    <item row="6" column="1">
      <widget class="QWidget" name="MetroWidget" native="true">
       <property name="styleSheet">
        <string notr="true"/>
@@ -331,7 +334,18 @@ font: 600 9pt &quot;Cascadia Mono SemiBold&quot;;</string>
       </layout>
      </widget>
     </item>
-    <item row="6" column="1">
+    <item row="7" column="0">
+     <widget class="QPushButton" name="NextButton">
+      <property name="styleSheet">
+       <string notr="true">background-color:rgb(0, 85, 127); color:white;
+font: 600 10pt &quot;Cascadia Mono SemiBold&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Next</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="1">
      <widget class="QWidget" name="UberWidget" native="true">
       <property name="styleSheet">
        <string notr="true"/>
@@ -390,7 +404,7 @@ font: 600 9pt &quot;Cascadia Mono SemiBold&quot;;</string>
       </layout>
      </widget>
     </item>
-    <item row="7" column="0">
+    <item row="8" column="0">
      <widget class="QToolButton" name="AddButton">
       <property name="maximumSize">
        <size>
@@ -407,7 +421,7 @@ font: 600 9pt &quot;Cascadia Mono SemiBold&quot;;</string>
       </property>
      </widget>
     </item>
-    <item row="7" column="1">
+    <item row="8" column="1">
      <widget class="QWidget" name="AddWidget" native="true">
       <property name="styleSheet">
        <string notr="true"/>
@@ -450,18 +464,7 @@ font: 600 9pt &quot;Cascadia Mono SemiBold&quot;;</string>
       </layout>
      </widget>
     </item>
-    <item row="8" column="1">
-     <widget class="QPushButton" name="SubmitButton">
-      <property name="styleSheet">
-       <string notr="true">background-color:rgb(181, 0, 0); color:white; 
-font: 600 10pt &quot;Cascadia Mono SemiBold&quot;;</string>
-      </property>
-      <property name="text">
-       <string>Submit</string>
-      </property>
-     </widget>
-    </item>
-    <item row="8" column="0">
+    <item row="9" column="0">
      <widget class="QPushButton" name="UpdateButton">
       <property name="styleSheet">
        <string notr="true">background-color:rgb(255, 0, 0); color: white;
@@ -472,31 +475,28 @@ font: 600 10pt &quot;Cascadia Mono SemiBold&quot;;</string>
       </property>
      </widget>
     </item>
-    <item row="6" column="0">
-     <widget class="QPushButton" name="NextButton">
+    <item row="9" column="1">
+     <widget class="QPushButton" name="SubmitButton">
       <property name="styleSheet">
-       <string notr="true">background-color:rgb(0, 85, 127); color:white;
+       <string notr="true">background-color:rgb(181, 0, 0); color:white; 
 font: 600 10pt &quot;Cascadia Mono SemiBold&quot;;</string>
       </property>
       <property name="text">
-       <string>Next</string>
+       <string>Submit</string>
       </property>
      </widget>
     </item>
-    <item row="2" column="0">
-     <widget class="QLabel" name="label_8">
-      <property name="styleSheet">
-       <string notr="true">visibility: hidden;</string>
-      </property>
+    <item row="0" column="0">
+     <widget class="QToolButton" name="toolButton">
       <property name="text">
-       <string/>
+       <string>...</string>
       </property>
      </widget>
     </item>
     <item row="3" column="0">
-     <widget class="QLabel" name="label_9">
+     <widget class="QLabel" name="label_8">
       <property name="styleSheet">
-       <string notr="true">visibility: hidden;</string>
+       <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
       </property>
       <property name="text">
        <string/>
@@ -504,9 +504,9 @@ font: 600 10pt &quot;Cascadia Mono SemiBold&quot;;</string>
      </widget>
     </item>
     <item row="4" column="0">
-     <widget class="QLabel" name="label_10">
+     <widget class="QLabel" name="label_9">
       <property name="styleSheet">
-       <string notr="true">visibility: hidden;</string>
+       <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
       </property>
       <property name="text">
        <string/>
@@ -514,9 +514,19 @@ font: 600 10pt &quot;Cascadia Mono SemiBold&quot;;</string>
      </widget>
     </item>
     <item row="5" column="0">
+     <widget class="QLabel" name="label_10">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="0">
      <widget class="QLabel" name="label_11">
       <property name="styleSheet">
-       <string notr="true">visibility: hidden;</string>
+       <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
       </property>
       <property name="text">
        <string/>

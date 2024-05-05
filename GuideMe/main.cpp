@@ -11,10 +11,8 @@
 #include <QCoreApplication>
 #include <QString>
 #include <QDebug>
-
 using namespace std;
-#include <iostream>
-#include "edit_edge.h"
+
 
 int main(int argc, char *argv[])
 {

@@ -4,7 +4,7 @@
 #include<QIcon>
 #include<QString>
 #include<iostream>
-
+#include"result_window.h"
 using namespace std;
 
 MainWindow::MainWindow(QWidget *parent)
@@ -79,6 +79,14 @@ void MainWindow::on_pushButton_clicked()
     QString destinationLocation = on_DestinationCombo_activated(ui->DestinationCombo->currentIndex());
     if(startLocation == destinationLocation){
         ui->statusbar->showMessage("PLEASE CHOOSE DIFFERENT START AND DESTINATION");
+    }
+    else{
+        MainWindow::close();
+        Result_Window r;
+        r.on_next(ui->StartCombo->currentText(),ui->DestinationCombo->currentText(),ui->priceEdit->toPlainText());
+        r.setWindowTitle("Result");
+        r.setModal(true);
+        r.exec();
     }
     //the rest of the save and the opening of the second window
 
