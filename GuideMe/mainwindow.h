@@ -27,13 +27,12 @@ private slots:
 
   //  void on_StartCombo_currentTextChanged(const QString &arg1);
 
-    QString on_StartCombo_activated(int index);
-
-    QString on_DestinationCombo_activated(int index);
 
     void on_BfsRB_clicked();
 
     void on_DfsRB_clicked();
+
+    void on_StartCombo_currentIndexChanged(int index);
 
 private:
     Ui::MainWindow *ui;
