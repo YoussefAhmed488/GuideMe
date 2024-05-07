@@ -10,12 +10,14 @@
 #include <QCoreApplication>
 #include <QString>
 #include <QDebug>
+#include"graph.h"
 
 using namespace std;
 
 class FileReader
 {
 public:
+    Graph graph;
     FileReader();
     void readFile();
 };

@@ -4,10 +4,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class Edge
+class edge
 {
 public:
-    Edge();
+    edge();
+    edge(vector<pair<string ,int>>dataa);
     vector<pair<string,int>>dirction;
     void add_Edge(string start,string end,string type,int price);
     void delete_Edge(string start,string end,string type,int price);
