@@ -25,6 +25,7 @@ int main(int argc, char *argv[])
     // for (int var = 0; var < File_Mangment().data_file.size(); ++var) {
     //     cout << File_Mangment().data_file[var]<<'\n';
     // }
+   w.setGeometry(270, 70, 1065, 855);
     w.show();
     FileReader f;
     f.readFile();

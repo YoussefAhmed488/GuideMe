@@ -38,7 +38,8 @@ void Result_Window::on_toolButton_clicked()
 void Result_Window::on_backtoolButton_clicked()
 {
     Result_Window::close();
-    MainWindow *mainWindow = new MainWindow(); // Create a new instance of MainWindow
+    MainWindow *mainWindow = new MainWindow();
+    mainWindow->setGeometry(600, 250, 0, 0);
     mainWindow->show();
 }
 void Result_Window::on_next(QString from,QString to,QString price){
