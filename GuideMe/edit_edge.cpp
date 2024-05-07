@@ -1,6 +1,6 @@
 #include "edit_edge.h"
 #include "ui_edit_edge.h"
-
+#include "result_window.h"
 Edit_Edge::Edit_Edge(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Edit_Edge)
@@ -111,6 +111,9 @@ void Edit_Edge::on_start()
     ui->MicrobusWidget->hide();
     ui->MetroWidget->hide();
     ui->UberWidget->hide();
+    ui->toolButton->setIcon(QIcon(":/back-button.png"));
+    QSize iconSize(25, 25); // Adjust the size as needed
+    ui->toolButton->setIconSize(iconSize);
     on_load();
 }
 
@@ -144,3 +147,13 @@ Edit_Edge::~Edit_Edge()
 {
     delete ui;
 }
+
+void Edit_Edge::on_toolButton_clicked()
+{
+    Edit_Edge::close();
+    Result_Window r;
+    r.setWindowTitle("Result");
+    r.setModal(true);
+    r.exec();
+}
+

@@ -7,4 +7,8 @@
         <file>Flag_of_Asyut_Governorate.png</file>
         <file>cairo-logo-2692B970B3-seeklogo.com.png</file>
     </qresource>
+    <qresource prefix="/">
+        <file>edit_icon_2.png</file>
+        <file>back-button.png</file>
+    </qresource>
 </RCC>

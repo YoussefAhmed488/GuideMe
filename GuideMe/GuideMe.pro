@@ -15,7 +15,8 @@ SOURCES += \
     graph.cpp \
     filereader.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    result_window.cpp
 
 HEADERS += \
     edge.h \
@@ -23,11 +24,13 @@ HEADERS += \
     file_mangment.h \
     graph.h \
     filereader.h \
-    mainwindow.h
+    mainwindow.h \
+    result_window.h
 
 FORMS += \
     edit_edge.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    result_window.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

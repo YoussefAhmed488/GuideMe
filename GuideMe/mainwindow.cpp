@@ -4,7 +4,7 @@
 #include<QIcon>
 #include<QString>
 #include<iostream>
-
+#include"result_window.h"
 using namespace std;
 
 MainWindow::MainWindow(QWidget *parent)
@@ -31,19 +31,17 @@ MainWindow::MainWindow(QWidget *parent)
     ui->BfsRB->setStyleSheet("background-color: rgba(255, 255, 255, 0);");
     ui->DfsRB->setStyleSheet("background-color: rgba(255, 255, 255, 0);");
     ui->statusbar->setStyleSheet("background-color: rgba(255, 255, 255, 0);");
-    ui->StartCombo->addItem("    ");
     ui->StartCombo->addItem(QIcon(":/rec/Beni_Suef_Governorate_New_Flag.svg.png"),"Beni Suif");
     ui->StartCombo->addItem(QIcon(":/rec/cairo-logo-2692B970B3-seeklogo.com.png"),"Cairo");
     ui->StartCombo->addItem(QIcon(":/rec/download.jpeg"),"Dahab");
     ui->StartCombo->addItem(QIcon(":/rec/Flag_of_Asyut_Governorate.png"),"Asyut");
     ui->StartCombo->addItem(QIcon(":/rec/f96c49d4-4142-43d4-9f26-075f3fda536c-transformed.png"),"Giza");
-    ui->DestinationCombo->addItem("    ");
     ui->DestinationCombo->addItem(QIcon(":/rec/Beni_Suef_Governorate_New_Flag.svg.png"),"Beni Suif");
     ui->DestinationCombo->addItem(QIcon(":/rec/cairo-logo-2692B970B3-seeklogo.com.png"),"Cairo");
     ui->DestinationCombo->addItem(QIcon(":/rec/download.jpeg"),"Dahab");
     ui->DestinationCombo->addItem(QIcon(":/rec/Flag_of_Asyut_Governorate.png"),"Asyut");
     ui->DestinationCombo->addItem(QIcon(":/rec/f96c49d4-4142-43d4-9f26-075f3fda536c-transformed.png"),"Giza");
-
+    ui->DestinationCombo->setCurrentIndex(1);
 
 
 
@@ -75,54 +73,24 @@ void MainWindow::on_pushButton_clicked()
 
     on_priceEdit_copyAvailable(b);
 
-    QString startLocation = on_StartCombo_activated(ui->StartCombo->currentIndex());
-    QString destinationLocation = on_DestinationCombo_activated(ui->DestinationCombo->currentIndex());
-    if(startLocation == destinationLocation){
-        ui->statusbar->showMessage("PLEASE CHOOSE DIFFERENT START AND DESTINATION");
+    if(ui->priceEdit->toPlainText().isEmpty()){
+        ui->statusbar->showMessage("PLEASE ENTER PRICE");
+    }
+    else if (!ui->BfsRB->isChecked() && !ui->DfsRB->isChecked()){
+        ui->statusbar->showMessage("PLEASE SELECT ALGORITHM");
+    }
+    else{
+        MainWindow::close();
+        Result_Window r;
+        r.on_next(ui->StartCombo->currentText(),ui->DestinationCombo->currentText(),ui->priceEdit->toPlainText());
+        r.setWindowTitle("Result");
+        r.setModal(true);
+        r.exec();
     }
     //the rest of the save and the opening of the second window
 
 }
 
-
-QString MainWindow::on_StartCombo_activated(int index)
-{
-    if(index==0){
-
-        ui->statusbar->clearMessage();
-        ui->statusbar->showMessage("Please choose a Starting Point");
-
-        return 0;
-    }
-    else{
-
-        ui->statusbar->clearMessage();
-        QString text = ui->StartCombo->itemText(index);
-        return text;
-
-    }
-
-}
-
-QString MainWindow::on_DestinationCombo_activated(int index)
-{
-    if(index==0){
-
-        ui->statusbar->clearMessage();
-        ui->statusbar->showMessage("Please choose a Destination");
-
-        return 0;
-
-
-    }
-    else{
-
-        ui->statusbar->clearMessage();
-        QString text = ui->StartCombo->itemText(index);
-        return text;
-
-    }
-}
 
 
 void MainWindow::on_BfsRB_clicked()
@@ -134,5 +102,18 @@ void MainWindow::on_BfsRB_clicked()
 void MainWindow::on_DfsRB_clicked()
 {
 
+}
+
+
+void MainWindow::on_StartCombo_currentIndexChanged(int index)
+{
+    ui->DestinationCombo->clear();
+
+    ui->DestinationCombo->addItem(QIcon(":/rec/Beni_Suef_Governorate_New_Flag.svg.png"),"Beni Suif");
+    ui->DestinationCombo->addItem(QIcon(":/rec/cairo-logo-2692B970B3-seeklogo.com.png"),"Cairo");
+    ui->DestinationCombo->addItem(QIcon(":/rec/download.jpeg"),"Dahab");
+    ui->DestinationCombo->addItem(QIcon(":/rec/Flag_of_Asyut_Governorate.png"),"Asyut");
+    ui->DestinationCombo->addItem(QIcon(":/rec/f96c49d4-4142-43d4-9f26-075f3fda536c-transformed.png"),"Giza");
+    ui->DestinationCombo->removeItem(index);
 }
 

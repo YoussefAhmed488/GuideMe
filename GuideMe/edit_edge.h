@@ -29,6 +29,8 @@ private slots:
     void on_submit();
     void on_update();
     void on_next();
+    void on_toolButton_clicked();
+
 private:
     Ui::Edit_Edge *ui;
     void on_ToCombobox();
