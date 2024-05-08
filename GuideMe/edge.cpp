@@ -1,7 +1,8 @@
 #include "edge.h"
-
-Edge::Edge() {
-
-
-
+edge::edge()
+{
+    //cout<<"finally";
+}
+edge::edge(vector<pair<string,int>> dataa) {
+    dirction=dataa;
 }
