@@ -1,26 +1,32 @@
 #ifndef GRAPH_H
 #define GRAPH_H
-
-#include <vector>
+#pragma once
+#include <iostream>
+#include<bits\stdc++.h>
+#include <fstream>
 #include <unordered_map>
-#include<unordered_set>
 #include <map>
-#include"edge.h"
-#include <string>
+#include<set>
+#include <vector>
+#include "edge.h"
 
-using namespace std;
-
-
-
+//undirected graph using
+//hash table as adjacency list representation
 class Graph {
+
+    unordered_map<string, vector<Edge>> adj;// hashtable as every cell contains vector of edges
+        //adjacency lists
+
+    //A recursive function used by getAllPaths
+
 public:
     Graph();
-    edge data;
-    unordered_map<string, vector<pair<string, edge>>> graph;
-    map<int, string> mp;
-    void setData(string sor,string des,vector<pair<string,int>>data);
-    void dfs(string node, string dest, unordered_map<string , vector<pair<string, edge>>>& graph, vector<pair<string, edge>>& path, vector<vector<pair<string, edge>>>& paths, unordered_set<string>& visited);
-    vector<vector<pair<string, edge>>> find_all_passes(string source, string dest);
+    void addEdge(string u, string v, string t, float cost);
+    // this fun choose which algorithms to use
+    void findAllPathsDFS(string, string, string, map<string, bool>visited, vector<Edge>, Edge, int&);
+    void getAllPaths(string s, string d);
+    void findAllPathsBFS(string source, string dest);
+    bool findEdge(vector<Edge>, string nodeName, string vehicleName);
 };
 
 #endif // GRAPH_H

@@ -18,13 +18,7 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     MainWindow w;
-    // File_Mangment file;
-    // file.write();
-    // file.read();
-    // w.show();
-    // for (int var = 0; var < File_Mangment().data_file.size(); ++var) {
-    //     cout << File_Mangment().data_file[var]<<'\n';
-    // }
+
    w.setGeometry(270, 70, 1065, 855);
     w.show();
     FileReader f;

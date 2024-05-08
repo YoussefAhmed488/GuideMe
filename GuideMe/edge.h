@@ -1,18 +1,23 @@
 #ifndef EDGE_H
 #define EDGE_H
 
-#include <bits/stdc++.h>
+#pragma once
+#include<iostream>
+#include<vector>
+#include <string>
 using namespace std;
-
-class edge
+class Edge
 {
 public:
-    edge();
-    edge(vector<pair<string ,int>>dataa);
-    vector<pair<string,int>>dirction;
-    void add_Edge(string start,string end,string type,int price);
-    void delete_Edge(string start,string end,string type,int price);
-    void Update_Edge(string start,string end,string type,int price);
+    string startNode,endNode,vehicle;
+    float cost;
+    Edge();
+    Edge(string n1, string n2);
+    Edge(string n1, string n2, string v, float c);
+
+
 };
+
+
 
 #endif // EDGE_H
