@@ -14,9 +14,13 @@
 //hash table as adjacency list representation
 class Graph {
 
+public:
     unordered_map<string, vector<Edge>> adj;// hashtable as every cell contains vector of edges
         //adjacency lists
 
+
+    //Cost for Dijkstra
+    unordered_map<string,float>cost;
     //A recursive function used by getAllPaths
 
 public:
@@ -27,6 +31,7 @@ public:
     void getAllPaths(string s, string d);
     void findAllPathsBFS(string source, string dest);
     bool findEdge(vector<Edge>, string nodeName, string vehicleName);
+    void dijkstra(string source,string dest);
 };
 
 #endif // GRAPH_H

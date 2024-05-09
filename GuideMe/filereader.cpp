@@ -6,6 +6,7 @@
 //#include<bits\stdc++.h>
 #include<QFile>
 #include<QTextStream>
+#include <Qstring>
 #include "edge.h"
 #include "graph.h"
 #include<QMessageBox>
@@ -14,6 +15,8 @@
 #include <QDebug>
 #include <sstream>
 #include<string>
+#include "QFile"
+#include "graph.h"
 using namespace std;
 
 FileReader::FileReader()
@@ -25,7 +28,8 @@ void FileReader::readFile()
 {
     ifstream file("C:/Users/lenovo/source/repos/GuideMe/GuideMe/input.txt");
     string content;
-
+    save_file.clear();
+    graph.adj.clear();
     if (file.is_open()) { // Check if file is open
         string line;
         getline(file, line);
@@ -57,6 +61,7 @@ void FileReader::readFile()
                 str >> cost;
                 cout << trans_info << " " << cost << " ";
                 graph.addEdge(city1, city2, trans_info,cost);
+                save_file[{city1,city2}].push_back({s,cost});
             }
 
             cout << endl;
@@ -80,4 +85,23 @@ void FileReader::readFile()
 void FileReader::savefile()
 {
 
+    QFile file("C:/Users/lenovo/source/repos/GuideMe/GuideMe/input.txt");
+    if(file.open(QIODevice::Truncate | QIODevice::ReadWrite))
+    {
+        QTextStream stream(&file);
+        string size = to_string(save_file.size());
+        QString tmp = QString::fromStdString(size);
+        stream << tmp << "\n";
+        for(auto i : save_file)
+        {
+            string node = i.first.first + " - " + i.first.second + " ";
+            for(auto j :i.second)
+            {
+                node += j.first + " " + to_string(j.second) + " ";
+            }
+            tmp = QString::fromStdString(node);
+            stream << tmp << '\n';
+        }
+    }
+    file.close();
 }

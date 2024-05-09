@@ -18,6 +18,7 @@ class FileReader
 {
 public:
 
+    map<pair<string,string>,vector<pair<string,int>>>save_file;
     FileReader();
     Graph graph;
     void readFile();
