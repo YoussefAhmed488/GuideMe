@@ -23,8 +23,8 @@ FileReader::FileReader()
 
 void FileReader::readFile()
 {
-    Graph graph = Graph();
-    ifstream file("C:/Users/lenovo/source/repos/GuideMe/GuideMe/input.txt");
+
+    ifstream file("D:/FCIS/Sophomore/Second Semester/Data Structure/New folder/GuideMe/input.txt");
     string content;
 
     if (file.is_open()) { // Check if file is open
@@ -57,7 +57,7 @@ void FileReader::readFile()
                 float cost;
                 str >> cost;
                 cout << trans_info << " " << cost << " ";
-                graph.addEdge(city1, city2, trans_info,cost);
+                m.graph.addEdge(city1, city2, trans_info,cost);
 
             }
 
@@ -71,11 +71,11 @@ void FileReader::readFile()
     }
     file.close(); // Close the file
 
-    std::cout << "Content of the file:\n" << content << std::endl;
+    // std::cout << "Content of the file:\n" << content << std::endl;
 
-    string s = "Cairo", d = "Dahab";
-    cout << "Following are all different paths from " << s
-         << " to " << d << endl;
+    // string s = "Cairo", d = "Dahab";
+    // cout << "Following are all different paths from " << s
+    //      << " to " << d << endl;
 
-    graph.getAllPaths(s, d);
+    // m.graph.getAllPaths(s, d,1);
 }

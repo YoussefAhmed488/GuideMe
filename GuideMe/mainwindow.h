@@ -1,5 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
+#include"graph.h"
 
 #include <QMainWindow>
 
@@ -15,12 +16,12 @@ class MainWindow : public QMainWindow
 
 public:
     MainWindow(QWidget *parent = nullptr);
+
+    Graph graph = Graph();
+
     ~MainWindow();
 
 private slots:
-
-
-    float on_priceEdit_copyAvailable(bool b);
 
 
     void on_pushButton_clicked();

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1065</width>
-    <height>740</height>
+    <height>854</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -93,28 +93,28 @@
       </property>
      </widget>
     </item>
-    <item row="11" column="0">
+    <item row="12" column="0">
      <widget class="QLabel" name="AlgoLabel">
       <property name="text">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Pick Algorithm:&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
     </item>
-    <item row="11" column="1">
+    <item row="12" column="1">
      <widget class="QRadioButton" name="DfsRB">
       <property name="text">
        <string>DFS</string>
       </property>
      </widget>
     </item>
-    <item row="17" column="0">
+    <item row="19" column="0">
      <widget class="QLabel" name="label">
       <property name="text">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Enter Your Preferred Price:&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
     </item>
-    <item row="17" column="1">
+    <item row="19" column="1">
      <widget class="QTextEdit" name="priceEdit">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
@@ -138,7 +138,7 @@
       </property>
      </widget>
     </item>
-    <item row="24" column="1">
+    <item row="26" column="1">
      <widget class="QPushButton" name="pushButton">
       <property name="maximumSize">
        <size>
@@ -160,7 +160,7 @@
       </property>
      </widget>
     </item>
-    <item row="25" column="0">
+    <item row="27" column="0">
      <widget class="QLabel" name="pic_label">
       <property name="minimumSize">
        <size>
@@ -176,6 +176,13 @@
       </property>
       <property name="text">
        <string>TextLabel</string>
+      </property>
+     </widget>
+    </item>
+    <item row="11" column="1">
+     <widget class="QRadioButton" name="radioButton">
+      <property name="text">
+       <string>Dijkestra</string>
       </property>
      </widget>
     </item>

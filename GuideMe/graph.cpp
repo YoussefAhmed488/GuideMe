@@ -7,6 +7,7 @@
 #include <vector>
 #include "edge.h"
 #include "graph.h"
+#include"mainwindow.h"
 
 using namespace std;
 
@@ -36,26 +37,35 @@ bool Graph::findEdge(vector<Edge> edges, string nodeName, string vehicleName)
 }
 
 //Prints all paths from 's' to 'd'
-void Graph::getAllPaths(string s, string d)
+void Graph::getAllPaths(string s, string d,int b)
 {
     //map to initialize all nodes as not visited
     map<string,bool>visited;
-
     //Create vector to store paths
     vector<Edge>paths;
     Edge path;
     int path_index = 0;
 
-    // Call the iterative function to print all paths
-    findAllPathsBFS(s, d);//
-    cout<< endl;
-    //Call the recursive function to print all paths
-    findAllPathsDFS("", s, d, visited, paths,path, path_index);
-    dijkstra("Giza","BeniSuef");
-}
+    if(b==1){
 
+        // Call the iterative function to print all paths
+
+        findAllPathsBFS(s, d);//
+    }
+    if(b==2){
+
+        //Call the recursive function to print all paths
+        findAllPathsDFS("", s, d, visited, paths,path, path_index);
+    }
+    if(b==3){
+
+        // dijkstra("Giza","BeniSuef");
+
+    }
+}
 void Graph::findAllPathsBFS(string source, string dest) {
 
+    cout<<source<<"  "<<dest<<"   "<< adj[source].size();
     //queue to store all paths
     queue<vector<string>> q;
     //to store the path as nodes in the first
