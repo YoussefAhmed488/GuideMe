@@ -2,7 +2,7 @@
 #define GRAPH_H
 #pragma once
 #include <iostream>
-#include<bits\stdc++.h>
+//#include<bits\stdc++.h>
 #include <fstream>
 #include <unordered_map>
 #include <map>
@@ -27,6 +27,10 @@ public:
     void getAllPaths(string s, string d);
     void findAllPathsBFS(string source, string dest);
     bool findEdge(vector<Edge>, string nodeName, string vehicleName);
+    bool isConnected();
+    bool isComplete();
+private:
+    void isConnectedDFS(map<string, bool> &vis, string node);
 };
 
 #endif // GRAPH_H

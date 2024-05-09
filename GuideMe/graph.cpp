@@ -1,10 +1,11 @@
 #include <iostream>
-#include<bits\stdc++.h>
+//#include<bits\stdc++.h>
 #include <fstream>
 #include <unordered_map>
 #include <map>
 #include<set>
 #include <vector>
+#include<queue>
 #include "edge.h"
 #include "graph.h"
 
@@ -148,3 +149,52 @@ void Graph::findAllPathsDFS(string prevNode,string u, string d, map<string, bool
     path_index--;
     visited[u] = false;
 }
+
+
+bool Graph::isComplete()
+{
+    int n = adj.size();
+    // for (auto i : adj)
+    //     cout << "node: " << i.first << " children: " << i.second.size() << endl;
+    // for(auto i : adj["a"])
+    // {
+    //     cout << "child: " << i.endNode << endl;
+    // }
+    for (auto i : adj)
+    {
+        //cout << "size: " <<  i.second.size() << endl;
+        if(i.second.size() / 2 != n - 1)
+            return false;
+    }
+    return true;
+}
+
+bool Graph::isConnected()
+{
+    map<string, bool> vis;
+    isConnectedDFS(vis, (*adj.begin()).first);
+    if(vis.size() == adj.size())
+        return true;
+    else
+        return false;
+
+}
+
+void Graph::isConnectedDFS(map<string, bool> &vis, string node)
+{
+    vis[node] = true;
+    for(auto child : adj[node])
+        if(!vis[child.endNode])
+            isConnectedDFS(vis, child.endNode);
+}
+
+
+
+
+
+
+
+
+
+
+
