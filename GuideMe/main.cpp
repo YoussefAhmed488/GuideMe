@@ -23,6 +23,7 @@ int main(int argc, char *argv[])
     w.show();
     FileReader f;
     f.readFile();
+    cout <<'\n';
     return a.exec();
 }
 
