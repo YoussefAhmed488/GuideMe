@@ -19,7 +19,9 @@ class FileReader
 public:
 
     FileReader();
+    Graph graph;
     void readFile();
+    void savefile();
 };
 
 #endif // FILEREADER_H

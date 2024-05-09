@@ -23,8 +23,7 @@ FileReader::FileReader()
 
 void FileReader::readFile()
 {
-    Graph graph = Graph();
-    ifstream file("F:/FCIS 2026/DS Project/GuideMe/build-GuideMe-Desktop_Qt_6_7_0_MSVC2019_64bit-Debug/TransportationMap.txt");
+    ifstream file("C:/Users/lenovo/source/repos/GuideMe/GuideMe/input.txt");
     string content;
 
     if (file.is_open()) { // Check if file is open
@@ -58,7 +57,6 @@ void FileReader::readFile()
                 str >> cost;
                 cout << trans_info << " " << cost << " ";
                 graph.addEdge(city1, city2, trans_info,cost);
-
             }
 
             cout << endl;
@@ -78,4 +76,8 @@ void FileReader::readFile()
          << " to " << d << endl;
 
     graph.getAllPaths(s, d);
+}
+void FileReader::savefile()
+{
+
 }
