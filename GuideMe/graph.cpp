@@ -51,7 +51,7 @@ void Graph::getAllPaths(string s, string d)
     cout<< endl;
     //Call the recursive function to print all paths
     findAllPathsDFS("", s, d, visited, paths,path, path_index);
-
+    dijkstra("Giza","BeniSuef");
 }
 
 void Graph::findAllPathsBFS(string source, string dest) {
@@ -147,4 +147,48 @@ void Graph::findAllPathsDFS(string prevNode,string u, string d, map<string, bool
     //mark current node as unvisited
     path_index--;
     visited[u] = false;
+}
+
+void Graph::dijkstra(string start,string end)
+{
+    string node;
+    priority_queue<pair<float,string>>pq;
+    unordered_map<string,pair<string,string>>parent;
+    //Max The Distance
+    for(auto i : adj)
+        cost[i.first] = 1e9;
+
+    pq.push({0,start});
+    cost[start] = 0;
+
+    while(!pq.empty())
+    {
+        //Getting The Best Choice To Try (top)
+        node = pq.top().second;
+        double cur_cost = -pq.top().first;
+        pq.pop();
+
+        //If Found Better path Continue
+        if(cur_cost > cost[node])
+            continue;
+
+        //Loop on The Edge
+        for(auto child : adj[node])
+        {
+            //If Found A better Path Save it And push THe dest Node To The pq
+            if(cur_cost+child.cost < cost[child.endNode])
+            {
+                //Save The Parent For The Node And The Type of Transportaion
+                parent[child.endNode] = {child.startNode,child.vehicle};
+                //Update The Old Cost By The Better One
+                cost[child.endNode] = cur_cost + child.cost;
+                pq.push({-cost[child.endNode],child.endNode});
+            }
+        }
+    }
+    while (start != end) {
+        cout <<"From "<< end <<" To "<< parent[end].first<<" by "<<parent[end].second<<" ";
+        end = parent[end].first;
+    }
+    cout << end;
 }
