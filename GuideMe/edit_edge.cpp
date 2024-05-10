@@ -1,6 +1,9 @@
 #include "edit_edge.h"
 #include "ui_edit_edge.h"
 #include "result_window.h"
+
+//using namespace std;
+
 Edit_Edge::Edit_Edge(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Edit_Edge)
@@ -9,6 +12,7 @@ Edit_Edge::Edit_Edge(QWidget *parent) :
     on_combobox();
     on_start();
     on_connect();
+
 }
 
 void Edit_Edge::on_comboBox_currentIndexChanged()
@@ -64,33 +68,103 @@ void Edit_Edge::on_update()
             ui->TrainWidget->show();
             TrainVisibility = true;
             ui->TrainText->setText(ui->AddText->text());
+
+
+            QString to = ui->FromcomboBox->currentText();
+            std::string t = to.toStdString();
+            QString from = ui->TocomboBox->currentText();
+            std::string f= to.toStdString();
+            QString vehicle = ui->AddcomboBox->currentText();
+            std::string v= to.toStdString();
+            QString price = ui->AddText->text();
+            std::string p= to.toStdString();
+            int pr;
+            std::stringstream(p) >> pr;
+            cout<<t<<"  "<<f<<endl<<v<<pr<<endl;
+            cout<<graph->adj[f].size()<<endl;
+            graph->addEdge(f,t,v,pr);
+            cout<<graph->adj[f].size()<<endl;
+
         }
         else if (ui->AddcomboBox->currentText() == "Bus") {
             ui->BusWidget->show();
             BusVisibility = true;
             ui->BusText->setText(ui->AddText->text());
+
+
+            QString to = ui->FromcomboBox->currentText();
+            std::string t = to.toStdString();
+            QString from = ui->TocomboBox->currentText();
+            std::string f= to.toStdString();
+            QString vehicle = ui->AddcomboBox->currentText();
+            std::string v= to.toStdString();
+            QString price = ui->AddText->text();
+            std::string p= to.toStdString();
+            int pr;
+            std::stringstream(p) >> pr;
+            graph->addEdge(f,t,v,pr);
+
         }
         else if (ui->AddcomboBox->currentText() == "Microbus") {
             ui->MicrobusWidget->show();
             MicrobusVisibility = true;
             ui->MicrobusText->setText(ui->AddText->text());
+            QString to = ui->FromcomboBox->currentText();
+            std::string t = to.toStdString();
+            QString from = ui->TocomboBox->currentText();
+            std::string f= to.toStdString();
+            QString vehicle = ui->AddcomboBox->currentText();
+            std::string v= to.toStdString();
+            QString price = ui->AddText->text();
+            std::string p= to.toStdString();
+            int pr;
+            std::stringstream(p) >> pr;
+            graph->addEdge(f,t,v,pr);
+
         }
         else if (ui->AddcomboBox->currentText() == "Metro") {
             ui->MetroWidget->show();
             MetroVisibility = true;
             ui->MetroText->setText(ui->AddText->text());
+            QString to = ui->FromcomboBox->currentText();
+            std::string t = to.toStdString();
+            QString from = ui->TocomboBox->currentText();
+            std::string f= to.toStdString();
+            QString vehicle = ui->AddcomboBox->currentText();
+            std::string v= to.toStdString();
+            QString price = ui->AddText->text();
+            std::string p= to.toStdString();
+            int pr;
+            std::stringstream(p) >> pr;
+            graph->addEdge(f,t,v,pr);
+
         }
         else {
             ui->UberWidget->show();
             UberVisibility = true;
             ui->UberText->setText(ui->AddText->text());
+
+            QString to = ui->FromcomboBox->currentText();
+            std::string t = to.toStdString();
+            QString from = ui->TocomboBox->currentText();
+            std::string f= to.toStdString();
+            QString vehicle = ui->AddcomboBox->currentText();
+            std::string v= to.toStdString();
+            QString price = ui->AddText->text();
+            std::string p= to.toStdString();
+            int pr;
+            std::stringstream(p) >> pr;
+            graph->addEdge(f,t,v,pr);
+
         }
     }
+
+
 }
 
 void Edit_Edge::on_connect()
 {
-    connect(ui->FromcomboBox, SIGNAL(activated(int)), this, SLOT(on_comboBox_currentIndexChanged(int)));
+    connect(ui->FromcomboBox, SIGNAL(activated(int)), this, SLOT(on_comboBox_currentIndexChanged()));
     connect(ui->AddButton, SIGNAL(clicked()), this, SLOT(on_add()));
     connect(ui->TrainX, SIGNAL(clicked()), this, SLOT(on_click1()));
     connect(ui->BusX, SIGNAL(clicked()), this, SLOT(on_click2()));
@@ -100,7 +174,6 @@ void Edit_Edge::on_connect()
     connect(ui->UpdateButton, SIGNAL(clicked()), this, SLOT(on_update()));
     connect(ui->SubmitButton, SIGNAL(clicked()), this, SLOT(on_submit()));
     connect(ui->NextButton, SIGNAL(clicked()), this, SLOT(on_next()));
-
 }
 
 void Edit_Edge::on_start()
@@ -144,10 +217,6 @@ void Edit_Edge::on_load()
 void Edit_Edge::on_next()
 {
 }
-Edit_Edge::~Edit_Edge()
-{
-    delete ui;
-}
 
 void Edit_Edge::on_toolButton_clicked()
 {
@@ -162,5 +231,22 @@ void Edit_Edge::on_toolButton_clicked()
 void Edit_Edge::on_TocomboBox_currentIndexChanged(int index)
 {
 
+}
+
+Edit_Edge::~Edit_Edge()
+{
+    delete ui;
+}
+///////////////////////////////////////////////////
+void Edit_Edge::on_FromcomboBox_activated(int index)
+{
+
+}
+
+
+void Edit_Edge::on_AddButton_clicked()
+{
+    ui->AddWidget->show();
+    Added = true;
 }
 

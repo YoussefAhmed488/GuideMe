@@ -10,7 +10,7 @@ Edge::Edge(string n1, string n2)
     endNode = n2;
 }
 
-Edge::Edge(string n1, string n2, string v, float c)
+Edge::Edge(string n1, string n2, string v, int c)
 {
     startNode = n1;
     endNode = n2;

@@ -8,6 +8,7 @@
 #include "edge.h"
 #include "graph.h"
 #include"mainwindow.h"
+#include <sstream>
 
 using namespace std;
 
@@ -27,7 +28,7 @@ Graph::Graph() {
     // For instance, if there were any default values or setup needed for the adjacency list or costs.
 }
 
-void Graph::addEdge(string u, string v,string t,float cost)
+void Graph::addEdge(string u, string v,string t,int cost)
 {
     Edge e1(u, v, t, cost);
     Edge e2(v, u, t, cost);
@@ -48,6 +49,7 @@ bool Graph::findEdge(vector<Edge> edges, string nodeName, string vehicleName)
 }
 
 //Prints all paths from 's' to 'd'
+
 void Graph::getAllPaths(string s, string d,int b)
 {
 
@@ -113,9 +115,10 @@ void Graph::findAllPathsBFS(string source, string dest) {
 
                 sumCost += e.cost;
             }
-            s+=pathEdge.back().endNode +" " ;
-            road.push_back({sumCost,s});
 
+            s+=pathEdge.back().endNode +" " ;
+
+            road[sumCost] = pathEdge;
         }
 
         for (auto child : adj[last])
@@ -143,6 +146,8 @@ void Graph::findAllPathsDFS(string prevNode,string u, string d, map<string, bool
 {
     //Mark the current node as visited
     visited[u] = true;
+    string s;
+
     if (path_index > 0) { paths.push_back(path); }
     path_index++;
 
@@ -150,12 +155,13 @@ void Graph::findAllPathsDFS(string prevNode,string u, string d, map<string, bool
     if (u == d) {
         float sum_cost = 0;
         for (int i = 0; i < path_index - 1; i++) {
-            cout << paths[i].startNode << " (" << paths[i].vehicle << ") ";
+            s= paths[i].startNode + " (" + paths[i].vehicle + ") ";
             sum_cost += paths[i].cost;
         }
-        cout << paths.back().endNode<<" ";
-        cout << sum_cost;
-        cout << endl;
+
+        s+=paths.back().endNode +" " ;
+
+        road[sum_cost] = paths;
     }
     else //if current vertex is not destination
     {
@@ -167,6 +173,7 @@ void Graph::findAllPathsDFS(string prevNode,string u, string d, map<string, bool
             }
         }
     }
+
 
     //mark current node as unvisited
     path_index--;
@@ -188,6 +195,7 @@ void Graph::dijkstra(string start,string end)
     while(!pq.empty())
     {
         //Getting The Best Choice To Try (top)
+        string s;
         node = pq.top().second;
         double cur_cost = -pq.top().first;
         pq.pop();

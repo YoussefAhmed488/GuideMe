@@ -15,28 +15,30 @@
 class Graph {
 
 private:
+
     static Graph* instance; // Pointer to the single instance of the class
 
     // Private constructor to prevent instantiation outside the class
     Graph();
 
     // Private Copy Constructor and Assignment Operator
-    Graph(const Graph&) = delete;
-    Graph& operator=(const Graph&) = delete;
+   // Graph(const Graph&) = delete;
+
+  //  Graph& operator=(const Graph&) = delete;
+
+
+
 public:
     unordered_map<string, vector<Edge>> adj;// hashtable as every cell contains vector of edges
         //adjacency lists
-
-    vector<pair<int,string>> road;
-
+    map<int,vector<Edge>> road;
     static Graph* getInstance();
-
     //Cost for Dijkstra
     unordered_map<string,float>cost;
     //A recursive function used by getAllPaths
 
 
-    void addEdge(string u, string v, string t, float cost);
+    void addEdge(string u, string v, string t, int cost);
     // this fun choose which algorithms to use
     void findAllPathsDFS(string, string, string, map<string, bool>visited, vector<Edge>, Edge, int&);
     void getAllPaths(string s, string d,int b);

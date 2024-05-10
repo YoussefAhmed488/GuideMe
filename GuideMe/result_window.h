@@ -4,6 +4,8 @@
 #include <QDialog>
 #include <QString>
 #include<string>
+#include"graph.h"
+
 using namespace std;
 namespace Ui {
 class Result_Window;
@@ -16,12 +18,13 @@ class Result_Window : public QDialog
 public:
     explicit Result_Window(QWidget *parent = nullptr);
 
-    ~Result_Window();
+    Graph* graph = Graph::getInstance();
 
     void on_next(QString from,QString to,QString price);
 
-    void path_show(vector<pair<int,string>> p);
+    void setting_result();
 
+    ~Result_Window();
 private slots:
     void on_toolButton_clicked();
 

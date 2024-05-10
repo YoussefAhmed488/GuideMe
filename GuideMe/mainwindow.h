@@ -19,7 +19,7 @@ public:
 
     Graph* graph = Graph::getInstance();
 
-    vector<pair<int,string>> road;
+    map<int,vector<Edge>> road;
 
     ~MainWindow();
 

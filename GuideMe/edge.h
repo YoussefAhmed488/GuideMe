@@ -13,7 +13,7 @@ public:
     float cost;
     Edge();
     Edge(string n1, string n2);
-    Edge(string n1, string n2, string v, float c);
+    Edge(string n1, string n2, string v, int c);
 
 
 };

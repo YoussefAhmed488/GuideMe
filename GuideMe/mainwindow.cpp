@@ -74,24 +74,28 @@ void MainWindow::on_pushButton_clicked()
         if(bfs){
             algo = 1;
             graph->getAllPaths(start,dest,algo);
-            road=graph->road;
+
         }
         else if(dfs){
             algo = 2;
             graph->getAllPaths(start,dest,algo);
-            road=graph->road;
+
         }else{
 
             algo = 3;
             graph->getAllPaths(start,dest,algo);
-            road=graph->road;
+
         }
 
         MainWindow::close();
         Result_Window r;
+
         r.on_next(ui->StartCombo->currentText(),ui->DestinationCombo->currentText(),ui->priceEdit->toPlainText());
-        sort(road.begin(),road.end());
-        r.path_show(road);
+
+        // sort(road.begin(),road.end());
+
+        r.setting_result();
+
         r.setWindowTitle("Result");
         r.setModal(true);
         r.exec();

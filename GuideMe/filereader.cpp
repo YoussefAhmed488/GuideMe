@@ -24,7 +24,7 @@ FileReader::FileReader()
 void FileReader::readFile()
 {
 
-    ifstream file("F:/FCIS 2026/DS Project/GuideMe/build-GuideMe-Desktop_Qt_6_7_0_MSVC2019_64bit-Debug/TransportationMap.txt");
+    ifstream file("D:/FCIS/Sophomore/Second Semester/Data Structure/New folder/GuideMe/input.txt");
     string content;
 
     if (file.is_open()) { // Check if file is open
@@ -76,5 +76,5 @@ void FileReader::readFile()
      // cout << "Following are all different paths from " << s
      //      << " to " << d << endl;
 
-     // m.graph.getAllPaths(s, d,1);
+     // g->getAllPaths(s, d,1);
 }

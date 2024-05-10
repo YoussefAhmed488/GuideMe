@@ -2,6 +2,7 @@
 #define EDIT_EDGE_H
 
 #include <QDialog>
+#include"graph.h"
 
 namespace Ui {
 class Edit_Edge;
@@ -12,6 +13,8 @@ class Edit_Edge : public QDialog
     Q_OBJECT
 
 public:
+    Graph* graph = Graph::getInstance();
+
     explicit Edit_Edge(QWidget *parent = nullptr);
     ~Edit_Edge();
     void on_connect();
@@ -32,6 +35,10 @@ private slots:
     void on_toolButton_clicked();
 
     void on_TocomboBox_currentIndexChanged(int index);
+
+    void on_FromcomboBox_activated(int index);
+
+    void on_AddButton_clicked();
 
 private:
     Ui::Edit_Edge *ui;

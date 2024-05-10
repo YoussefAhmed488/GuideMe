@@ -5,34 +5,51 @@
 #include "mainwindow.h"
 #include<QString>
 #include<string>
+using namespace std;
 Result_Window::Result_Window(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::Result_Window)
+
 {
     ui->setupUi(this);
-    ui->toolButton->setIcon(QIcon(":/edit_icon_2.png"));
+    //ui->toolButton->setIcon(QIcon(":/edit_icon_2.png"));
     QSize iconSize(25, 25); // Adjust the size as needed
-    ui->toolButton->setIconSize(iconSize);
+    //ui->toolButton->setIconSize(iconSize);
     ui->backtoolButton->setIcon(QIcon(":/back-button.png"));
     ui->backtoolButton->setIconSize(iconSize);
+    ui->textEdit->clear();
 
 
 }
 
-void Result_Window :: path_show(vector<pair<int,string>> p){
+void Result_Window::setting_result() {
+    for (auto it : graph->road) {
 
-    string path;
+        QString priceText = ui->PriceResult->text();
+        std::string price = priceText.toStdString();
 
-    for (int i = 0; i < (int)p.size(); i++) {
-
-        path = p[i].second +"  "+ to_string(p[i].first);
-
-        if(i==0){
-            ui->Option1Result->setText(QString::fromStdString(path));
+        if(stoi(price)<it.first){
+            continue;
         }
+
+        for (auto i : it.second ) {
+
+
+            QString qPath = QString::fromStdString("From " + i.startNode + " to " + i.endNode + ", taking a " + i.vehicle + " costs " + std::to_string((int)i.cost))+"  ";
+
+            ui->textEdit->insertPlainText(qPath);
+
     }
 
+        ui->textEdit->insertPlainText(QString::fromStdString(" Which will cost you totally " +to_string(it.first))+"  ");
+    ui->textEdit->append(QString::fromStdString("\n"));
+
+    }
+
+    graph->road.clear();
+
 }
+
 
 Result_Window::~Result_Window()
 {
@@ -45,7 +62,7 @@ void Result_Window::on_toolButton_clicked()
     Result_Window::close();
     QIcon appIcon(":/edit_icon_2.png");
     Edit_Edge e;
-    e.setWindowTitle("Update Edges");
+    e.setWindowTitle("Edit Edges");
     e.setWindowIcon(appIcon);
     e.setModal(true);
     e.exec();
