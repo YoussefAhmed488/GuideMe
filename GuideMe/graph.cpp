@@ -1,10 +1,11 @@
 #include <iostream>
-#include<bits\stdc++.h>
+//#include<bits\stdc++.h>
 #include <fstream>
 #include <unordered_map>
 #include <map>
 #include<set>
 #include <vector>
+#include<queue>
 #include "edge.h"
 #include "graph.h"
 #include"mainwindow.h"
@@ -215,5 +216,48 @@ void Graph::dijkstra(string start,string end)
         end = parent[end].first;
     }
     cout<<end;
+}
 
+void Graph::deleteEdge(string start, string end, string type)
+{
+    //for(auto i : adj[start])
+    for(auto i = adj[start].begin(); i != adj[start].end(); i++)
+    {
+        if(i->endNode == end and i->vehicle == type)
+        {
+            adj[start].erase(i);
+            break;
+        }
+    }
+    //for(auto i : adj[end])
+    for(auto i = adj[end].begin(); i != adj[end].end(); i++)
+    {
+        if(i->endNode == start and i->vehicle == type)
+        {
+            adj[end].erase(i);
+            break;
+        }
+    }
+}
+void Graph::updateEdgeCost(string start, string end, string type, float newCost)
+{
+    for(auto i : adj[start])
+    {
+        if(i.endNode == end)
+        {
+            i.cost = newCost;
+            break;
+        }
+    }
+}
+
+void Graph::printGraph()
+{
+    for(auto i : adj)
+    {
+        cout << i.first << ": ";
+        for (auto j : i.second)
+            cout << j.endNode << " ";
+        cout << endl;
+    }
 }

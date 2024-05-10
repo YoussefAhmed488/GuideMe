@@ -2,7 +2,7 @@
 #define GRAPH_H
 #pragma once
 #include <iostream>
-#include<bits\stdc++.h>
+//#include<bits\stdc++.h>
 #include <fstream>
 #include <unordered_map>
 #include <map>
@@ -37,6 +37,9 @@ public:
 
 
     void addEdge(string u, string v, string t, float cost);
+    void deleteEdge(string start, string end, string type);
+    void updateEdgeCost(string start, string end, string type, float newCost);
+    void printGraph();
     // this fun choose which algorithms to use
     void findAllPathsDFS(string, string, string, map<string, bool>visited, vector<Edge>, Edge, int&);
     void getAllPaths(string s, string d,int b);
