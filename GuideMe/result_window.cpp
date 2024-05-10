@@ -4,6 +4,7 @@
 #include"edit_edge.h"
 #include "mainwindow.h"
 #include<QString>
+#include<string>
 Result_Window::Result_Window(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::Result_Window)
@@ -15,13 +16,29 @@ Result_Window::Result_Window(QWidget *parent)
     ui->backtoolButton->setIcon(QIcon(":/back-button.png"));
     ui->backtoolButton->setIconSize(iconSize);
 
+
 }
 
+void Result_Window :: path_show(vector<pair<int,string>> p){
+
+    string path;
+
+    for (int i = 0; i < (int)p.size(); i++) {
+
+        path = p[i].second +"  "+ to_string(p[i].first);
+
+        if(i==0){
+            ui->Option1Result->setText(QString::fromStdString(path));
+        }
+    }
+
+}
 
 Result_Window::~Result_Window()
 {
     delete ui;
 }
+
 
 void Result_Window::on_toolButton_clicked()
 {

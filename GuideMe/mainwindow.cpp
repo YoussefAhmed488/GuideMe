@@ -35,7 +35,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->BfsRB->setStyleSheet("background-color: rgba(255, 255, 255, 0);");
     ui->DfsRB->setStyleSheet("background-color: rgba(255, 255, 255, 0);");
     ui->statusbar->setStyleSheet("background-color: rgba(255, 255, 255, 0);");
-    ui->StartCombo->addItem(QIcon(":/rec/Beni_Suef_Governorate_New_Flag.svg.png"),"BeniSuif");
+    ui->StartCombo->addItem(QIcon(":/rec/Beni_Suef_Governorate_New_Flag.svg.png"),"BeniSuef");
     ui->StartCombo->addItem(QIcon(":/rec/cairo-logo-2692B970B3-seeklogo.com.png"),"Cairo");
     ui->StartCombo->addItem(QIcon(":/rec/download.jpeg"),"Dahab");
     ui->StartCombo->addItem(QIcon(":/rec/Flag_of_Asyut_Governorate.png"),"Asyut");
@@ -49,7 +49,6 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-
 
 
 
@@ -75,19 +74,24 @@ void MainWindow::on_pushButton_clicked()
         if(bfs){
             algo = 1;
             graph.getAllPaths(start,dest,algo);
+            road=graph.road;
         }
         else if(dfs){
             algo = 2;
             graph.getAllPaths(start,dest,algo);
+            road=graph.road;
         }else{
 
             algo = 3;
             graph.getAllPaths(start,dest,algo);
+            road=graph.road;
         }
 
         MainWindow::close();
         Result_Window r;
         r.on_next(ui->StartCombo->currentText(),ui->DestinationCombo->currentText(),ui->priceEdit->toPlainText());
+        sort(road.begin(),road.end());
+        r.path_show(road);
         r.setWindowTitle("Result");
         r.setModal(true);
         r.exec();
@@ -102,7 +106,11 @@ void MainWindow::on_BfsRB_clicked()
 {
 
 }
+void MainWindow::setgraph(Graph g){
 
+    this->graph=g;
+
+}
 
 void MainWindow::on_DfsRB_clicked()
 {
@@ -114,7 +122,7 @@ void MainWindow::on_StartCombo_currentIndexChanged(int index)
 {
     ui->DestinationCombo->clear();
 
-    ui->DestinationCombo->addItem(QIcon(":/rec/Beni_Suef_Governorate_New_Flag.svg.png"),"BeniSuif");
+    ui->DestinationCombo->addItem(QIcon(":/rec/Beni_Suef_Governorate_New_Flag.svg.png"),"BeniSuef");
     ui->DestinationCombo->addItem(QIcon(":/rec/cairo-logo-2692B970B3-seeklogo.com.png"),"Cairo");
     ui->DestinationCombo->addItem(QIcon(":/rec/download.jpeg"),"Dahab");
     ui->DestinationCombo->addItem(QIcon(":/rec/Flag_of_Asyut_Governorate.png"),"Asyut");

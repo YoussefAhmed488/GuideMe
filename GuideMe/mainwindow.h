@@ -17,16 +17,23 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
 
-    Graph graph = Graph();
+    // Graph graph = Graph();
+    void setgraph(Graph g);
+
+    Graph graph;
+
+    vector<pair<int,string>> road;
 
     ~MainWindow();
 
 private slots:
 
-
+    // Instance of the Graph class
     void on_pushButton_clicked();
 
-  //  void on_StartCombo_currentTextChanged(const QString &arg1);
+    //  void on_StartCombo_currentTextChanged(const QString &arg1);
+
+
 
 
     void on_BfsRB_clicked();

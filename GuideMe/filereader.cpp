@@ -32,13 +32,13 @@ void FileReader::readFile()
         getline(file, line);
         int num;
         num = stoi(line);
-        cout << num << endl;
+       // cout << num << endl;
 
         while (getline(file, line)) { // Read the file line by line
 
             istringstream str(line);
             string city1, city2, trans_info, ignore;
-            cout << line << endl; // Print the current line
+            //cout << line << endl; // Print the current line
 
             //Extract cities and split
             getline(str, city1, '-');
@@ -49,19 +49,19 @@ void FileReader::readFile()
             city1.erase(city1.find_last_not_of(" ") + 1);
             city2.erase(0, city2.find_first_not_of(" "));
             //cout << "<"<< ignore << ">";
-            cout << city1 << " - " << city2 << " ";
+           // cout << city1 << " - " << city2 << " ";
 
 
             while (str >> trans_info) {
                 string s = trans_info;
                 float cost;
                 str >> cost;
-                cout << trans_info << " " << cost << " ";
-                m.graph.addEdge(city1, city2, trans_info,cost);
+               // cout << trans_info << " " << cost << " ";
+                g.addEdge(city1, city2, trans_info,cost);
 
             }
 
-            cout << endl;
+           // cout << endl;
 
         }
     }
@@ -70,12 +70,11 @@ void FileReader::readFile()
         return;
     }
     file.close(); // Close the file
+     // std::cout << "Content of the file:\n" << content << std::endl;
 
-    // std::cout << "Content of the file:\n" << content << std::endl;
+     // string s = "Cairo", d = "Dahab";
+     // cout << "Following are all different paths from " << s
+     //      << " to " << d << endl;
 
-    // string s = "Cairo", d = "Dahab";
-    // cout << "Following are all different paths from " << s
-    //      << " to " << d << endl;
-
-    // m.graph.getAllPaths(s, d,1);
+     // m.graph.getAllPaths(s, d,1);
 }

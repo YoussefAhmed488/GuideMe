@@ -17,9 +17,9 @@ using namespace std;
 class FileReader
 {
 
-
 public:
-    MainWindow m;
+
+    Graph g;
     FileReader();
     void readFile();
 };

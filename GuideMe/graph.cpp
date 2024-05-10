@@ -39,6 +39,7 @@ bool Graph::findEdge(vector<Edge> edges, string nodeName, string vehicleName)
 //Prints all paths from 's' to 'd'
 void Graph::getAllPaths(string s, string d,int b)
 {
+
     //map to initialize all nodes as not visited
     map<string,bool>visited;
     //Create vector to store paths
@@ -50,7 +51,8 @@ void Graph::getAllPaths(string s, string d,int b)
 
         // Call the iterative function to print all paths
 
-        findAllPathsBFS(s, d);//
+        findAllPathsBFS(s, d);
+
     }
     if(b==2){
 
@@ -59,13 +61,13 @@ void Graph::getAllPaths(string s, string d,int b)
     }
     if(b==3){
 
-        // dijkstra("Giza","BeniSuef");
+        dijkstra(s,d);
 
     }
+
 }
 void Graph::findAllPathsBFS(string source, string dest) {
 
-    cout<<source<<"  "<<dest<<"   "<< adj[source].size();
     //queue to store all paths
     queue<vector<string>> q;
     //to store the path as nodes in the first
@@ -91,16 +93,18 @@ void Graph::findAllPathsBFS(string source, string dest) {
 
         if (last == dest)
         {
+            string s;
             int sz = (int)path.size();//(int) fix warning
             float sumCost = 0;
             for (auto e : pathEdge)
             {
-                cout << e.startNode <<" ("<<e.vehicle<<") ";
+                s += e.startNode + " (" + e.vehicle+ ") ";
+
                 sumCost += e.cost;
             }
-            cout << pathEdge.back().endNode<<" ";
-            cout << sumCost;
-            cout << endl;
+            s+=pathEdge.back().endNode +" " ;
+            road.push_back({sumCost,s});
+
         }
 
         for (auto child : adj[last])
@@ -119,7 +123,6 @@ void Graph::findAllPathsBFS(string source, string dest) {
             }
         }
     }
-
 
 }
 
@@ -200,5 +203,6 @@ void Graph::dijkstra(string start,string end)
         cout <<"From "<< end <<" To "<< parent[end].first<<" by "<<parent[end].second<<" ";
         end = parent[end].first;
     }
-    cout << end;
+    cout<<end;
+
 }

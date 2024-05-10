@@ -18,10 +18,13 @@ public:
     unordered_map<string, vector<Edge>> adj;// hashtable as every cell contains vector of edges
         //adjacency lists
 
+    vector<pair<int,string>> road;
 
     //Cost for Dijkstra
     unordered_map<string,float>cost;
     //A recursive function used by getAllPaths
+
+
     Graph();
     void addEdge(string u, string v, string t, float cost);
     // this fun choose which algorithms to use
