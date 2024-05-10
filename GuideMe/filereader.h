@@ -18,8 +18,7 @@ class FileReader
 {
 
 public:
-
-    Graph g;
+    Graph* g = Graph::getInstance();
     FileReader();
     void readFile();
 };

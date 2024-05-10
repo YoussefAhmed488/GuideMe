@@ -73,18 +73,18 @@ void MainWindow::on_pushButton_clicked()
 
         if(bfs){
             algo = 1;
-            graph.getAllPaths(start,dest,algo);
-            road=graph.road;
+            graph->getAllPaths(start,dest,algo);
+            road=graph->road;
         }
         else if(dfs){
             algo = 2;
-            graph.getAllPaths(start,dest,algo);
-            road=graph.road;
+            graph->getAllPaths(start,dest,algo);
+            road=graph->road;
         }else{
 
             algo = 3;
-            graph.getAllPaths(start,dest,algo);
-            road=graph.road;
+            graph->getAllPaths(start,dest,algo);
+            road=graph->road;
         }
 
         MainWindow::close();
@@ -104,11 +104,6 @@ void MainWindow::on_pushButton_clicked()
 
 void MainWindow::on_BfsRB_clicked()
 {
-
-}
-void MainWindow::setgraph(Graph g){
-
-    this->graph=g;
 
 }
 

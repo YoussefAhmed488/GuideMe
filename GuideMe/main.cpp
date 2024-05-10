@@ -22,7 +22,6 @@ int main(int argc, char *argv[])
     f.readFile();
     MainWindow w;
 
-    w.setgraph(f.g);
 
     w.setGeometry(270, 70, 1065, 250);
     w.show();

@@ -11,9 +11,20 @@
 
 using namespace std;
 
-Graph::Graph()
-{
+Graph* Graph::instance = nullptr;
 
+// Get the singleton instance of the Graph.
+Graph* Graph::getInstance() {
+    if (!instance) {
+        instance = new Graph();
+    }
+    return instance;
+}
+
+// Private constructor definition (empty, since private and no other logic is needed)
+Graph::Graph() {
+    // Initialization code here if necessary.
+    // For instance, if there were any default values or setup needed for the adjacency list or costs.
 }
 
 void Graph::addEdge(string u, string v,string t,float cost)

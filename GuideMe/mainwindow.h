@@ -17,10 +17,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
 
-    // Graph graph = Graph();
-    void setgraph(Graph g);
-
-    Graph graph;
+    Graph* graph = Graph::getInstance();
 
     vector<pair<int,string>> road;
 
