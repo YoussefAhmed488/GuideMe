@@ -31,6 +31,8 @@ private slots:
     void on_next();
     void on_toolButton_clicked();
 
+    void on_TocomboBox_currentIndexChanged(int index);
+
 private:
     Ui::Edit_Edge *ui;
     void on_ToCombobox();

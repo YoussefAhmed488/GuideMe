@@ -138,6 +138,7 @@ void Edit_Edge::on_ToCombobox()
 
 void Edit_Edge::on_load()
 {
+
 }
 
 void Edit_Edge::on_next()
@@ -155,5 +156,11 @@ void Edit_Edge::on_toolButton_clicked()
     r.setWindowTitle("Result");
     r.setModal(true);
     r.exec();
+}
+
+
+void Edit_Edge::on_TocomboBox_currentIndexChanged(int index)
+{
+
 }
 
