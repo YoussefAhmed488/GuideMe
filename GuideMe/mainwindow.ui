@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1065</width>
-    <height>892</height>
+    <height>895</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -186,6 +186,13 @@
       </property>
      </widget>
     </item>
+    <item row="26" column="0">
+     <widget class="QToolButton" name="editButton">
+      <property name="text">
+       <string>   Edit  </string>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -194,7 +201,7 @@
      <x>0</x>
      <y>0</y>
      <width>1065</width>
-     <height>26</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>

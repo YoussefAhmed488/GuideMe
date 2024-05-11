@@ -94,22 +94,6 @@ background-color: rgba(255, 255, 255, 0);</string>
    <item row="4" column="0" colspan="2">
     <widget class="QTextEdit" name="textEdit"/>
    </item>
-   <item row="5" column="0">
-    <widget class="QToolButton" name="toolButton">
-     <property name="minimumSize">
-      <size>
-       <width>30</width>
-       <height>30</height>
-      </size>
-     </property>
-     <property name="styleSheet">
-      <string notr="true"/>
-     </property>
-     <property name="text">
-      <string>Edit</string>
-     </property>
-    </widget>
-   </item>
   </layout>
  </widget>
  <resources/>

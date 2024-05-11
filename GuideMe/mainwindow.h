@@ -39,6 +39,8 @@ private slots:
 
     void on_StartCombo_currentIndexChanged(int index);
 
+    void on_editButton_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

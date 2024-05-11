@@ -1,7 +1,8 @@
 #include "edit_edge.h"
 #include "ui_edit_edge.h"
 #include "result_window.h"
-
+#include "mainwindow.h"
+#include <sstream>
 //using namespace std;
 
 Edit_Edge::Edit_Edge(QWidget *parent) :
@@ -12,6 +13,7 @@ Edit_Edge::Edit_Edge(QWidget *parent) :
     on_combobox();
     on_start();
     on_connect();
+    ui->TocomboBox->setCurrentIndex(1);
 
 }
 
@@ -29,26 +31,62 @@ void Edit_Edge::on_click1()
 {
     ui->TrainWidget->hide();
     TrainVisibility = false;
+    string from = ui->FromcomboBox->currentText().toStdString();
+
+    string to = ui->TocomboBox->currentText().toStdString();
+
+    string vehicle = ui->trainLabel->text().toStdString();
+
+    graph->deleteEdge(from,to,vehicle);
 }
 void Edit_Edge::on_click2()
 {
     ui->BusWidget->hide();
     BusVisibility = false;
+    string from = ui->FromcomboBox->currentText().toStdString();
+
+    string to = ui->TocomboBox->currentText().toStdString();
+
+    string vehicle = ui->busLabel->text().toStdString();
+
+    graph->deleteEdge(from,to,vehicle);
+
 }
 void Edit_Edge::on_click3()
 {
     ui->MicrobusWidget->hide();
     MicrobusVisibility = false;
+    string from = ui->FromcomboBox->currentText().toStdString();
+
+    string to = ui->TocomboBox->currentText().toStdString();
+
+    string vehicle = ui->microbusLabel->text().toStdString();
+
+    graph->deleteEdge(from,to,vehicle);
 }
 void Edit_Edge::on_click4()
 {
     ui->MetroWidget->hide();
     MetroVisibility = false;
+    string from = ui->FromcomboBox->currentText().toStdString();
+
+    string to = ui->TocomboBox->currentText().toStdString();
+
+   string vehicle = ui->metroLabel->text().toStdString();
+
+    graph->deleteEdge(from,to,vehicle);
 }
 void Edit_Edge::on_click5()
 {
     ui->UberWidget->hide();
     UberVisibility = false;
+    string from = ui->FromcomboBox->currentText().toStdString();
+
+    string to = ui->TocomboBox->currentText().toStdString();
+
+    string vehicle = ui->uberLabel->text().toStdString();
+
+    graph->deleteEdge(from,to,vehicle);
 }
 
 void Edit_Edge::on_submit()
@@ -66,97 +104,151 @@ void Edit_Edge::on_update()
     if (Added && !(ui->AddText->text().isEmpty())) {
         if (ui->AddcomboBox->currentText() == "Train") {
             ui->TrainWidget->show();
-            TrainVisibility = true;
+
             ui->TrainText->setText(ui->AddText->text());
 
 
-            QString to = ui->FromcomboBox->currentText();
-            std::string t = to.toStdString();
-            QString from = ui->TocomboBox->currentText();
-            std::string f= to.toStdString();
-            QString vehicle = ui->AddcomboBox->currentText();
-            std::string v= to.toStdString();
-            QString price = ui->AddText->text();
-            std::string p= to.toStdString();
-            int pr;
-            std::stringstream(p) >> pr;
-            cout<<t<<"  "<<f<<endl<<v<<pr<<endl;
-            cout<<graph->adj[f].size()<<endl;
-            graph->addEdge(f,t,v,pr);
-            cout<<graph->adj[f].size()<<endl;
+            string to = ui->FromcomboBox->currentText().toStdString();
 
+            string from = ui->TocomboBox->currentText().toStdString();
+
+            string vehicle = ui->AddcomboBox->currentText().toStdString();
+
+            string price = ui->AddText->text().toStdString();
+
+            int pr;
+            std::stringstream(price) >> pr;
+            if(TrainVisibility){
+            graph->updateEdgeCost(from,to,vehicle,pr);
+            }
+            else{
+            graph->addEdge(from,to,vehicle,pr);
+            }
+            TrainVisibility = true;
         }
         else if (ui->AddcomboBox->currentText() == "Bus") {
             ui->BusWidget->show();
-            BusVisibility = true;
+
             ui->BusText->setText(ui->AddText->text());
 
 
-            QString to = ui->FromcomboBox->currentText();
-            std::string t = to.toStdString();
-            QString from = ui->TocomboBox->currentText();
-            std::string f= to.toStdString();
-            QString vehicle = ui->AddcomboBox->currentText();
-            std::string v= to.toStdString();
-            QString price = ui->AddText->text();
-            std::string p= to.toStdString();
+            string to = ui->FromcomboBox->currentText().toStdString();
+
+            string from = ui->TocomboBox->currentText().toStdString();
+
+            string vehicle = ui->AddcomboBox->currentText().toStdString();
+
+            string price = ui->AddText->text().toStdString();
+
             int pr;
-            std::stringstream(p) >> pr;
-            graph->addEdge(f,t,v,pr);
+            std::stringstream(price) >> pr;
+
+            if(BusVisibility){
+                graph->updateEdgeCost(from,to,vehicle,pr);
+            }
+            else{
+                graph->addEdge(from,to,vehicle,pr);
+            }
+            BusVisibility = true;
+
 
         }
         else if (ui->AddcomboBox->currentText() == "Microbus") {
             ui->MicrobusWidget->show();
-            MicrobusVisibility = true;
+
             ui->MicrobusText->setText(ui->AddText->text());
-            QString to = ui->FromcomboBox->currentText();
-            std::string t = to.toStdString();
-            QString from = ui->TocomboBox->currentText();
-            std::string f= to.toStdString();
-            QString vehicle = ui->AddcomboBox->currentText();
-            std::string v= to.toStdString();
-            QString price = ui->AddText->text();
-            std::string p= to.toStdString();
+            string to = ui->FromcomboBox->currentText().toStdString();
+
+            string from = ui->TocomboBox->currentText().toStdString();
+
+            string vehicle = ui->AddcomboBox->currentText().toStdString();
+
+            string price = ui->AddText->text().toStdString();
+
             int pr;
-            std::stringstream(p) >> pr;
-            graph->addEdge(f,t,v,pr);
+            std::stringstream(price) >> pr;
+
+            if(MicrobusVisibility){
+                graph->updateEdgeCost(from,to,vehicle,pr);
+            }
+            else{
+                graph->addEdge(from,to,vehicle,pr);
+            }
+            MicrobusVisibility = true;
+
 
         }
         else if (ui->AddcomboBox->currentText() == "Metro") {
             ui->MetroWidget->show();
-            MetroVisibility = true;
+
             ui->MetroText->setText(ui->AddText->text());
-            QString to = ui->FromcomboBox->currentText();
-            std::string t = to.toStdString();
-            QString from = ui->TocomboBox->currentText();
-            std::string f= to.toStdString();
-            QString vehicle = ui->AddcomboBox->currentText();
-            std::string v= to.toStdString();
-            QString price = ui->AddText->text();
-            std::string p= to.toStdString();
+            string to = ui->FromcomboBox->currentText().toStdString();
+
+            string from = ui->TocomboBox->currentText().toStdString();
+
+            string vehicle = ui->AddcomboBox->currentText().toStdString();
+
+            string price = ui->AddText->text().toStdString();
+
             int pr;
-            std::stringstream(p) >> pr;
-            graph->addEdge(f,t,v,pr);
+            std::stringstream(price) >> pr;
+
+            if(MetroVisibility){
+                graph->updateEdgeCost(from,to,vehicle,pr);
+
+            }
+            else{
+                graph->addEdge(from,to,vehicle,pr);
+            }
+            MetroVisibility = true;
+
 
         }
         else {
             ui->UberWidget->show();
-            UberVisibility = true;
+
             ui->UberText->setText(ui->AddText->text());
 
-            QString to = ui->FromcomboBox->currentText();
-            std::string t = to.toStdString();
-            QString from = ui->TocomboBox->currentText();
-            std::string f= to.toStdString();
-            QString vehicle = ui->AddcomboBox->currentText();
-            std::string v= to.toStdString();
-            QString price = ui->AddText->text();
-            std::string p= to.toStdString();
+            string to = ui->FromcomboBox->currentText().toStdString();
+
+            string from = ui->TocomboBox->currentText().toStdString();
+
+            string vehicle = ui->AddcomboBox->currentText().toStdString();
+
+            string price = ui->AddText->text().toStdString();
+
             int pr;
-            std::stringstream(p) >> pr;
-            graph->addEdge(f,t,v,pr);
+            std::stringstream(price) >> pr;
+
+            if(UberVisibility){
+                graph->updateEdgeCost(from,to,vehicle,pr);
+            }
+            else{
+                graph->addEdge(from,to,vehicle,pr);
+            }
+            UberVisibility = true;
+
 
         }
+    }
+    else if(!(ui->newNodeText->text().isEmpty())){
+        graph->adj[ui->newNodeText->text().toStdString()];
+        ui->FromcomboBox->clear();
+         QStringList listCountries;
+        listCountries.clear();
+        for(auto node: graph->adj){
+            listCountries.append(QString::fromStdString(node.first));
+        }
+          ui->FromcomboBox->addItems(listCountries);
+        ui->TocomboBox->clear();
+
+          listCountriesTo.clear();
+          for(auto node: graph->adj){
+              listCountriesTo.append(QString::fromStdString(node.first));
+          }
+        listCountriesTo.removeOne(ui->FromcomboBox->currentText());
+        ui->TocomboBox->addItems(listCountriesTo);
+        ui->newNodeText->clear();
     }
 
 
@@ -172,8 +264,7 @@ void Edit_Edge::on_connect()
     connect(ui->MetroX, SIGNAL(clicked()), this, SLOT(on_click4()));
     connect(ui->UberX, SIGNAL(clicked()), this, SLOT(on_click5()));
     connect(ui->UpdateButton, SIGNAL(clicked()), this, SLOT(on_update()));
-    connect(ui->SubmitButton, SIGNAL(clicked()), this, SLOT(on_submit()));
-    connect(ui->NextButton, SIGNAL(clicked()), this, SLOT(on_next()));
+
 }
 
 void Edit_Edge::on_start()
@@ -194,16 +285,22 @@ void Edit_Edge::on_combobox()
 {
     QStringList listCountries;
     QStringList listTransportaion;
-    listCountries << "Cairo" << "Giza" << "Asyut" << "Dahab" << "BeniSuef";
+    listCountries.clear();
+    for(auto node: graph->adj){
+        listCountries.append(QString::fromStdString(node.first));
+    }
     listTransportaion << "Train" << "Bus" << "Microbus" << "Metro" << "Uber";
     ui->FromcomboBox->addItems(listCountries);
     ui->AddcomboBox->addItems(listTransportaion);
     on_ToCombobox();
+
 }
 void Edit_Edge::on_ToCombobox()
 {
-    QStringList listCountriesTo;
-    listCountriesTo << "Cairo" << "Giza" << "Asyut" << "Dahab" << "BeniSuef";
+    listCountriesTo.clear();
+    for(auto node: graph->adj){
+        listCountriesTo.append(QString::fromStdString(node.first));
+    }
     listCountriesTo.removeOne(ui->FromcomboBox->currentText());
     ui->TocomboBox->clear();
     ui->TocomboBox->addItems(listCountriesTo);
@@ -221,16 +318,51 @@ void Edit_Edge::on_next()
 void Edit_Edge::on_toolButton_clicked()
 {
     Edit_Edge::close();
-    Result_Window r;
-    r.setWindowTitle("Result");
-    r.setModal(true);
-    r.exec();
+    MainWindow *mainWindow = new MainWindow();
+    mainWindow->show();
 }
 
 
 void Edit_Edge::on_TocomboBox_currentIndexChanged(int index)
 {
+    string from = ui->FromcomboBox->currentText().toStdString();
+    string to = ui->TocomboBox->currentText().toStdString();
+    on_start();
+    ui->TrainText->clear();
+    ui->BusText->clear();
+    ui->MicrobusText->clear();
+    ui->MetroText->clear();
+    ui->UberText->clear();
+    for(auto e: graph->adj[from]){
+        if(e.endNode==to){
+            if (e.vehicle == "Train") {
+                ui->TrainWidget->show();
+                TrainVisibility = true;
+                ui->TrainText->setText(QString::number(e.cost));
+            }
+            else if (e.vehicle == "Bus") {
+                ui->BusWidget->show();
+                BusVisibility = true;
+                ui->BusText->setText(QString::number(e.cost));
+            }
+            else if (e.vehicle == "Microbus") {
+                ui->MicrobusWidget->show();
+                MicrobusVisibility = true;
+                ui->MicrobusText->setText(QString::number(e.cost));
 
+            }
+            else if (e.vehicle == "Metro") {
+                ui->MetroWidget->show();
+                MetroVisibility = true;
+                ui->MetroText->setText(QString::number(e.cost));
+            }
+            else {
+                ui->UberWidget->show();
+                UberVisibility = true;
+                ui->UberText->setText(QString::number(e.cost));
+            }
+        }
+    }
 }
 
 Edit_Edge::~Edit_Edge()

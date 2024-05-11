@@ -3,7 +3,7 @@
 
 #include <QDialog>
 #include"graph.h"
-
+#include <QStringList>
 namespace Ui {
 class Edit_Edge;
 }
@@ -43,6 +43,8 @@ private slots:
 private:
     Ui::Edit_Edge *ui;
     void on_ToCombobox();
+    QStringList listCountriesTo;
+    bool clicked =false;
     bool Added = false;
     bool TrainVisibility = false;
     bool BusVisibility = false;

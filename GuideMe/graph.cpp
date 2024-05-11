@@ -1,5 +1,5 @@
 #include <iostream>
-#include<bits\stdc++.h>
+#include<queue>
 #include <fstream>
 #include <unordered_map>
 #include <map>
@@ -36,16 +36,18 @@ void Graph::addEdge(string u, string v,string t,int cost)
     adj[v].push_back(e2); // Add v to u’s list.
 
 }
-bool Graph::findEdge(vector<Edge> edges, string nodeName, string vehicleName)
+Edge Graph::findEdge(vector<Edge> edges, string nodeName)
 {
+    Edge e2;
     for (auto e : edges)
     {
-        if (e.endNode == nodeName && e.vehicle == vehicleName)
+        if (e.endNode == nodeName)
         {
-            return 1;
+            e2=e;
+            return e2;
         }
     }
-    return 0;
+    return e2;
 }
 
 //Prints all paths from 's' to 'd'
@@ -224,4 +226,30 @@ void Graph::dijkstra(string start,string end)
     }
     cout<<end;
 
+}
+void Graph::updateEdgeCost(string start, string end, string type, int newCost)
+{
+    deleteEdge(start,end,type);
+    addEdge(start,end,type,newCost);
+}
+void Graph::deleteEdge(string start, string end, string type)
+{
+    //for(auto i : adj[start])
+    for(auto i = adj[start].begin(); i != adj[start].end(); i++)
+    {
+        if(i->endNode == end and i->vehicle == type)
+        {
+            adj[start].erase(i);
+            break;
+        }
+    }
+    //for(auto i : adj[end])
+    for(auto i = adj[end].begin(); i != adj[end].end(); i++)
+    {
+        if(i->endNode == start and i->vehicle == type)
+        {
+            adj[end].erase(i);
+            break;
+ }
+}
 }

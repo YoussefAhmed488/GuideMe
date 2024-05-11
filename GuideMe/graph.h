@@ -2,7 +2,7 @@
 #define GRAPH_H
 #pragma once
 #include <iostream>
-#include<bits\stdc++.h>
+#include<queue>
 #include <fstream>
 #include <unordered_map>
 #include <map>
@@ -43,7 +43,11 @@ public:
     void findAllPathsDFS(string, string, string, map<string, bool>visited, vector<Edge>, Edge, int&);
     void getAllPaths(string s, string d,int b);
     void findAllPathsBFS(string source, string dest);
-    bool findEdge(vector<Edge>, string nodeName, string vehicleName);
+    Edge findEdge(vector<Edge>, string fromName);
     void dijkstra(string source,string dest);
+    void updateEdgeCost(string start, string end, string type, int newCost);
+    void deleteEdge(string start, string end, string type);
+
+
 };
 #endif // GRAPH_H

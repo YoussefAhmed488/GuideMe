@@ -10,7 +10,7 @@ class Edge
 {
 public:
     string startNode,endNode,vehicle;
-    float cost;
+    int cost;
     Edge();
     Edge(string n1, string n2);
     Edge(string n1, string n2, string v, int c);

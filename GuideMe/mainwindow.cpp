@@ -7,6 +7,7 @@
 #include"result_window.h"
 #include<string>
 #include"graph.h"
+#include"edit_edge.h"
 using namespace std;
 
 MainWindow::MainWindow(QWidget *parent)
@@ -35,11 +36,14 @@ MainWindow::MainWindow(QWidget *parent)
     ui->BfsRB->setStyleSheet("background-color: rgba(255, 255, 255, 0);");
     ui->DfsRB->setStyleSheet("background-color: rgba(255, 255, 255, 0);");
     ui->statusbar->setStyleSheet("background-color: rgba(255, 255, 255, 0);");
-    ui->StartCombo->addItem(QIcon(":/rec/Beni_Suef_Governorate_New_Flag.svg.png"),"BeniSuef");
-    ui->StartCombo->addItem(QIcon(":/rec/cairo-logo-2692B970B3-seeklogo.com.png"),"Cairo");
-    ui->StartCombo->addItem(QIcon(":/rec/download.jpeg"),"Dahab");
-    ui->StartCombo->addItem(QIcon(":/rec/Flag_of_Asyut_Governorate.png"),"Asyut");
-    ui->StartCombo->addItem(QIcon(":/rec/f96c49d4-4142-43d4-9f26-075f3fda536c-transformed.png"),"Giza");
+    QStringList listGovernments;
+    listGovernments.clear();
+    for(auto node: graph->adj){
+        listGovernments.append(QString::fromStdString(node.first));
+    }
+    listGovernments.removeOne(ui->StartCombo->currentText());
+    ui->StartCombo->clear();
+    ui->StartCombo->addItems(listGovernments);
 
 
 
@@ -119,13 +123,26 @@ void MainWindow::on_DfsRB_clicked()
 
 void MainWindow::on_StartCombo_currentIndexChanged(int index)
 {
+    QStringList listGovernments;
+    listGovernments.clear();
+    for(auto node: graph->adj){
+        listGovernments.append(QString::fromStdString(node.first));
+    }
+    listGovernments.removeOne(ui->StartCombo->currentText());
     ui->DestinationCombo->clear();
+    ui->DestinationCombo->addItems(listGovernments);
 
-    ui->DestinationCombo->addItem(QIcon(":/rec/Beni_Suef_Governorate_New_Flag.svg.png"),"BeniSuef");
-    ui->DestinationCombo->addItem(QIcon(":/rec/cairo-logo-2692B970B3-seeklogo.com.png"),"Cairo");
-    ui->DestinationCombo->addItem(QIcon(":/rec/download.jpeg"),"Dahab");
-    ui->DestinationCombo->addItem(QIcon(":/rec/Flag_of_Asyut_Governorate.png"),"Asyut");
-    ui->DestinationCombo->addItem(QIcon(":/rec/f96c49d4-4142-43d4-9f26-075f3fda536c-transformed.png"),"Giza");
-    ui->DestinationCombo->removeItem(index);
+}
+
+
+void MainWindow::on_editButton_clicked()
+{
+    MainWindow::close();
+    QIcon appIcon(":/edit_icon_2.png");
+    Edit_Edge e;
+    e.setWindowTitle("Edit Edges");
+    e.setWindowIcon(appIcon);
+    e.setModal(true);
+    e.exec();
 }
 
