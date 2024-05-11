@@ -21,13 +21,6 @@ private:
     // Private constructor to prevent instantiation outside the class
     Graph();
 
-    // Private Copy Constructor and Assignment Operator
-   // Graph(const Graph&) = delete;
-
-  //  Graph& operator=(const Graph&) = delete;
-
-
-
 public:
     unordered_map<string, vector<Edge>> adj;// hashtable as every cell contains vector of edges
         //adjacency lists
@@ -37,6 +30,7 @@ public:
     unordered_map<string,float>cost;
     //A recursive function used by getAllPaths
 
+    map<pair<string,string>,set<pair<string,int>>>to_save;
 
     void addEdge(string u, string v, string t, int cost);
     // this fun choose which algorithms to use
@@ -47,7 +41,8 @@ public:
     void dijkstra(string source,string dest);
     void updateEdgeCost(string start, string end, string type, int newCost);
     void deleteEdge(string start, string end, string type);
-
+    void returnToFile();
+    void printGraph();
 
 };
 #endif // GRAPH_H

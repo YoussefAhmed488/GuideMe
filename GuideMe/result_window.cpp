@@ -59,7 +59,7 @@ Result_Window::~Result_Window()
 
 void Result_Window::on_toolButton_clicked()
 {
-    Result_Window::close();
+    Result_Window::hide();
     QIcon appIcon(":/edit_icon_2.png");
     Edit_Edge e;
     e.setWindowTitle("Edit Edges");
@@ -71,7 +71,7 @@ void Result_Window::on_toolButton_clicked()
 
 void Result_Window::on_backtoolButton_clicked()
 {
-    Result_Window::close();
+    Result_Window::hide();
     MainWindow *mainWindow = new MainWindow();
     mainWindow->setGeometry(600, 250, 0, 0);
     mainWindow->show();

@@ -27,10 +27,10 @@ FileReader::FileReader()
 void FileReader::readFile()
 {
 
-    ifstream file("D:/visual studio projects/Ds_Project/GuideMe/GuideMe/build/Desktop_Qt_6_7_0_MSVC2019_64bit-Debug/TransportationMap.txt");
+    ifstream file("F:/FCIS 2026/DS Project/GuideMe/GuideMe/build/Desktop_Qt_6_7_0_MSVC2019_64bit-Debug/TransportationMap.txt");
     string content;
-    save_file.clear();
-    graph.adj.clear();
+    graph->to_save.clear();
+    graph->adj.clear();
     if (file.is_open()) { // Check if file is open
         string line;
         getline(file, line);
@@ -61,7 +61,7 @@ void FileReader::readFile()
                 float cost;
                 str >> cost;
                // cout << trans_info << " " << cost << " ";
-                g->addEdge(city1, city2, trans_info,cost);
+                graph->addEdge(city1, city2, trans_info,cost);
 
             }
 
@@ -81,18 +81,19 @@ void FileReader::readFile()
      //      << " to " << d << endl;
 
      // g->getAllPaths(s, d,1);
+
 }
 void FileReader::savefile()
 {
-
-    QFile file("C:/Users/lenovo/source/repos/GuideMe/GuideMe/input.txt");
+    graph->returnToFile();
+    QFile file("F:/FCIS 2026/DS Project/GuideMe/GuideMe/build/Desktop_Qt_6_7_0_MSVC2019_64bit-Debug/output.txt");
     if(file.open(QIODevice::Truncate | QIODevice::ReadWrite))
     {
         QTextStream stream(&file);
-        string size = to_string(save_file.size());
+        string size = to_string(graph->to_save.size());
         QString tmp = QString::fromStdString(size);
         stream << tmp << "\n";
-        for(auto i : save_file)
+        for(auto i : graph->to_save)
         {
             string node = i.first.first + " - " + i.first.second + " ";
             for(auto j :i.second)
@@ -101,6 +102,7 @@ void FileReader::savefile()
             }
             tmp = QString::fromStdString(node);
             stream << tmp << '\n';
+
         }
     }
     file.close();

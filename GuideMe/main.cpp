@@ -1,4 +1,3 @@
-#include "file_mangment.h"
 #include "filereader.h"
 #include "mainwindow.h"
 #include<iostream>
@@ -26,9 +25,6 @@ int main(int argc, char *argv[])
     w.setGeometry(270, 70, 1065, 250);
     w.show();
 
-
-    cout <<'\n';
-    f.savefile();
     return a.exec();
 }
 

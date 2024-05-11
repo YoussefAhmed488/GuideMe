@@ -243,8 +243,10 @@ void Graph::deleteEdge(string start, string end, string type)
     //for(auto i : adj[start])
     for(auto i = adj[start].begin(); i != adj[start].end(); i++)
     {
-        if(i->endNode == end and i->vehicle == type)
+        if(i->endNode == end && i->vehicle == type)
         {
+            cout<<i->endNode<<" "<<end<<endl;
+            cout<<"removed1"<<endl;
             adj[start].erase(i);
             break;
         }
@@ -252,10 +254,39 @@ void Graph::deleteEdge(string start, string end, string type)
     //for(auto i : adj[end])
     for(auto i = adj[end].begin(); i != adj[end].end(); i++)
     {
-        if(i->endNode == start and i->vehicle == type)
+        if(i->endNode == start && i->vehicle == type)
         {
+            cout<<i->endNode<<" "<<start<<endl;
+            cout<<"removed2"<<endl;
             adj[end].erase(i);
             break;
  }
 }
+}
+void Graph::returnToFile()
+{
+
+    for(auto i:adj)
+    {
+
+        for(auto it : i.second)
+        {
+            vector<string>v(2);
+            v[0]=it.startNode;v[1]=it.endNode;
+            sort(v.begin(),v.end());
+            to_save[{v[0],v[1]}].insert({it.vehicle,it.cost});
+        }
+    }
+    printGraph();
+}
+
+void Graph::printGraph()
+{
+    for(auto i : adj)
+    {
+        cout << i.first << ": ";
+        for (auto j : i.second)
+            cout << j.endNode << " ";
+        cout << endl;
+    }
 }

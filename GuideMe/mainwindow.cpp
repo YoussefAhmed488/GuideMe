@@ -91,7 +91,7 @@ void MainWindow::on_pushButton_clicked()
 
         }
 
-        MainWindow::close();
+        MainWindow::hide();
         Result_Window r;
 
         r.on_next(ui->StartCombo->currentText(),ui->DestinationCombo->currentText(),ui->priceEdit->toPlainText());
@@ -137,7 +137,7 @@ void MainWindow::on_StartCombo_currentIndexChanged(int index)
 
 void MainWindow::on_editButton_clicked()
 {
-    MainWindow::close();
+    MainWindow::hide();
     QIcon appIcon(":/edit_icon_2.png");
     Edit_Edge e;
     e.setWindowTitle("Edit Edges");
@@ -145,4 +145,3 @@ void MainWindow::on_editButton_clicked()
     e.setModal(true);
     e.exec();
 }
-

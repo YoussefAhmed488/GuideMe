@@ -230,6 +230,7 @@ void Edit_Edge::on_update()
 
 
         }
+        Added=false;
     }
     else if(!(ui->newNodeText->text().isEmpty())){
         graph->adj[ui->newNodeText->text().toStdString()];
@@ -317,7 +318,7 @@ void Edit_Edge::on_next()
 
 void Edit_Edge::on_toolButton_clicked()
 {
-    Edit_Edge::close();
+    Edit_Edge::hide();
     MainWindow *mainWindow = new MainWindow();
     mainWindow->show();
 }

@@ -3,7 +3,7 @@
 #include"graph.h"
 
 #include <QMainWindow>
-
+#include "filereader.h"
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -18,6 +18,8 @@ public:
     MainWindow(QWidget *parent = nullptr);
 
     Graph* graph = Graph::getInstance();
+
+    FileReader filesave;
 
     map<int,vector<Edge>> road;
 
@@ -40,7 +42,12 @@ private slots:
     void on_StartCombo_currentIndexChanged(int index);
 
     void on_editButton_clicked();
-
+    void closeEvent(QCloseEvent *event) override {
+        // Call your function here
+        filesave.savefile();
+        qDebug()<<"closed";
+        QMainWindow::closeEvent(event);
+    }
 private:
     Ui::MainWindow *ui;
 };

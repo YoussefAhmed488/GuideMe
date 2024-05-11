@@ -1,6 +1,5 @@
 #ifndef FILEREADER_H
 #define FILEREADER_H
-#include"mainwindow.h"
 #include <string>
 #include <QApplication>
 //#include<bits\stdc++.h>
@@ -18,9 +17,8 @@ class FileReader
 {
 
 public:
-    Graph* g = Graph::getInstance();
+    Graph* graph = Graph::getInstance();
     FileReader();
-    Graph graph;
     void readFile();
     void savefile();
 };
