@@ -28,6 +28,7 @@ int main(int argc, char *argv[])
 
 
     cout <<'\n';
+    f.savefile();
     return a.exec();
 }
 

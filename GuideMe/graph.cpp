@@ -184,6 +184,7 @@ void Graph::findAllPathsDFS(string prevNode,string u, string d, map<string, bool
 
 void Graph::dijkstra(string start,string end)
 {
+    bool found = 0;
     string node;
     priority_queue<pair<float,string>>pq;
     unordered_map<string,pair<string,string>>parent;
@@ -217,10 +218,15 @@ void Graph::dijkstra(string start,string end)
                 //Update The Old Cost By The Better One
                 cost[child.endNode] = cur_cost + child.cost;
                 pq.push({-cost[child.endNode],child.endNode});
+                if(end == child.endNode)
+                    found = 1;
+
             }
         }
     }
-    while (start != end) {
+    if(!found)
+        cout <<"NOT Found \n";
+    while (start != end and found) {
         cout <<"From "<< end <<" To "<< parent[end].first<<" by "<<parent[end].second<<" ";
         end = parent[end].first;
     }

@@ -20,7 +20,9 @@ class FileReader
 public:
     Graph* g = Graph::getInstance();
     FileReader();
+    Graph graph;
     void readFile();
+    void savefile();
 };
 
 #endif // FILEREADER_H

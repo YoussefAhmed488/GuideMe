@@ -6,6 +6,7 @@
 //#include<bits\stdc++.h>
 #include<QFile>
 #include<QTextStream>
+#include <Qstring>
 #include "edge.h"
 #include "graph.h"
 #include<QMessageBox>
@@ -14,6 +15,8 @@
 #include <QDebug>
 #include <sstream>
 #include<string>
+#include "QFile"
+#include "graph.h"
 using namespace std;
 
 FileReader::FileReader()
@@ -26,7 +29,8 @@ void FileReader::readFile()
 
     ifstream file("D:/visual studio projects/Ds_Project/GuideMe/GuideMe/build/Desktop_Qt_6_7_0_MSVC2019_64bit-Debug/TransportationMap.txt");
     string content;
-
+    save_file.clear();
+    graph.adj.clear();
     if (file.is_open()) { // Check if file is open
         string line;
         getline(file, line);
@@ -77,4 +81,27 @@ void FileReader::readFile()
      //      << " to " << d << endl;
 
      // g->getAllPaths(s, d,1);
+}
+void FileReader::savefile()
+{
+
+    QFile file("C:/Users/lenovo/source/repos/GuideMe/GuideMe/input.txt");
+    if(file.open(QIODevice::Truncate | QIODevice::ReadWrite))
+    {
+        QTextStream stream(&file);
+        string size = to_string(save_file.size());
+        QString tmp = QString::fromStdString(size);
+        stream << tmp << "\n";
+        for(auto i : save_file)
+        {
+            string node = i.first.first + " - " + i.first.second + " ";
+            for(auto j :i.second)
+            {
+                node += j.first + " " + to_string(j.second) + " ";
+            }
+            tmp = QString::fromStdString(node);
+            stream << tmp << '\n';
+        }
+    }
+    file.close();
 }
