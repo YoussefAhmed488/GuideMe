@@ -41,6 +41,9 @@ public:
     void dijkstra(string source,string dest);
     void updateEdgeCost(string start, string end, string type, int newCost);
     void deleteEdge(string start, string end, string type);
+    bool isComplete();
+    bool isConnected();
+    void isConnectedDFS(map<string, bool> &vis, string node);
     void returnToFile();
     void printGraph();
 

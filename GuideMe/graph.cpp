@@ -187,7 +187,7 @@ void Graph::dijkstra(string start,string end)
     bool found = 0;
     string node;
     priority_queue<pair<float,string>>pq;
-    unordered_map<string,pair<string,string>>parent;
+    unordered_map<string,pair<string,pair<string,int>>>parent;
     //Max The Distance
     for(auto i : adj)
         cost[i.first] = 1e9;
@@ -214,7 +214,7 @@ void Graph::dijkstra(string start,string end)
             if(cur_cost+child.cost < cost[child.endNode])
             {
                 //Save The Parent For The Node And The Type of Transportaion
-                parent[child.endNode] = {child.startNode,child.vehicle};
+                parent[child.endNode] = {child.startNode,{child.vehicle,child.cost}};
                 //Update The Old Cost By The Better One
                 cost[child.endNode] = cur_cost + child.cost;
                 pq.push({-cost[child.endNode],child.endNode});
@@ -224,14 +224,15 @@ void Graph::dijkstra(string start,string end)
             }
         }
     }
+    int sum=0;
     if(!found)
         cout <<"NOT Found \n";
     while (start != end and found) {
-        cout <<"From "<< end <<" To "<< parent[end].first<<" by "<<parent[end].second<<" ";
+        sum+=parent[end].second.second;
+        cout <<"From "<< end <<" To "<< parent[end].first<<" by "<<parent[end].second.first <<" "<<parent[end].second.second<<" ";
         end = parent[end].first;
     }
-    cout<<end;
-
+    cout<<sum;
 }
 void Graph::updateEdgeCost(string start, string end, string type, int newCost)
 {
@@ -245,8 +246,6 @@ void Graph::deleteEdge(string start, string end, string type)
     {
         if(i->endNode == end && i->vehicle == type)
         {
-            cout<<i->endNode<<" "<<end<<endl;
-            cout<<"removed1"<<endl;
             adj[start].erase(i);
             break;
         }
@@ -256,12 +255,51 @@ void Graph::deleteEdge(string start, string end, string type)
     {
         if(i->endNode == start && i->vehicle == type)
         {
-            cout<<i->endNode<<" "<<start<<endl;
-            cout<<"removed2"<<endl;
             adj[end].erase(i);
             break;
  }
 }
+}
+
+bool Graph::isComplete()
+{
+    int n = adj.size();
+    // for (auto i : adj)
+    //     cout << "node: " << i.first << " children: " << i.second.size() << endl;
+    // for(auto i : adj["a"])
+    // {
+    //     cout << "child: " << i.endNode << endl;
+    // }
+    for (auto i : adj)
+    {
+        //cout << "size: " <<  i.second.size() << endl;
+        set<string> s;
+        for (auto j : i.second)
+            s.insert(j.endNode);
+
+        if(s.size() != n - 1)
+            return false;
+    }
+    return true;
+}
+
+bool Graph::isConnected()
+{
+    map<string, bool> vis;
+    isConnectedDFS(vis, (*adj.begin()).first);
+    if(vis.size() == adj.size())
+        return true;
+    else
+        return false;
+
+}
+
+void Graph::isConnectedDFS(map<string, bool> &vis, string node)
+{
+    vis[node] = true;
+    for(auto child : adj[node])
+        if(!vis[child.endNode])
+            isConnectedDFS(vis, child.endNode);
 }
 void Graph::returnToFile()
 {
@@ -277,7 +315,7 @@ void Graph::returnToFile()
             to_save[{v[0],v[1]}].insert({it.vehicle,it.cost});
         }
     }
-    printGraph();
+
 }
 
 void Graph::printGraph()

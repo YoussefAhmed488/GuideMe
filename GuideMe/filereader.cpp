@@ -66,8 +66,8 @@ void FileReader::readFile()
             }
 
            // cout << endl;
-
         }
+
     }
     else {
         std::cerr << "Unable to open file"; // Error if unable to open file
