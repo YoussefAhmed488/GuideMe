@@ -22,11 +22,30 @@ Result_Window::Result_Window(QWidget *parent)
 
 }
 
+void Result_Window::setGraphState(){
+
+    if(graph->isComplete()==true){
+        ui->label_2->setText("Graph is Complete");
+    }
+    else
+        ui->label_2->setText("Graph is not Complete");
+
+    if(graph->isConnected()==true){
+        ui->label_3->setText("Graph is Connected");
+    }
+    else
+        ui->label_3->setText("Graph is not Connected");
+
+
+}
 void Result_Window::setting_result() {
+
+    if((ui->PriceResult->text()).toInt() > graph->road.begin()->first){
     for (auto it : graph->road) {
 
         QString priceText = ui->PriceResult->text();
         std::string price = priceText.toStdString();
+
 
         if(stoi(price)<it.first){
             continue;
@@ -41,15 +60,40 @@ void Result_Window::setting_result() {
 
     }
 
-        ui->textEdit->insertPlainText(QString::fromStdString(" Which will cost you totally " +to_string(it.first))+"  ");
+    ui->textEdit->insertPlainText(QString::fromStdString(" Which will cost you totally " +to_string(it.first))+"  ");
     ui->textEdit->append(QString::fromStdString("\n"));
 
+    }
+    }
+    else{
+        ui->textEdit->insertPlainText("Low Price");
     }
 
     graph->road.clear();
 
 }
 
+void Result_Window::dijkestra(){
+
+    QString priceText = ui->PriceResult->text();
+    int number = priceText.toInt();
+
+    if(number >= graph->dijkestraCost){
+
+        QString qPath = QString::fromStdString(graph->dijkestraRoad);
+    ui->textEdit->insertPlainText(qPath);
+
+    QString costString = QString::number(graph->dijkestraCost);
+
+    ui->textEdit->insertPlainText(" Which will cost you totally " + costString+"  "+"(This is The Shortest Path)");
+
+    ui->textEdit->append(QString::fromStdString("\n"));
+
+    graph->dijkestraRoad.clear();
+
+    }else
+        ui->textEdit->insertPlainText("Price Entered is too low");
+}
 
 Result_Window::~Result_Window()
 {

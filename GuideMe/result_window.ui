@@ -14,22 +14,13 @@
    <string>Dialog</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #6c7a89, stop: 1 #bdc3c7);</string>
+   <string notr="true"/>
   </property>
   <layout class="QFormLayout" name="formLayout">
-   <item row="0" column="0">
-    <widget class="QToolButton" name="backtoolButton">
-     <property name="text">
-      <string>...</string>
-     </property>
-    </widget>
-   </item>
    <item row="1" column="0">
     <widget class="QLabel" name="Fromlabel">
      <property name="styleSheet">
-      <string notr="true">
-font: 11pt &quot;Segoe UI&quot;;
-background-color: rgba(255, 255, 255, 0);</string>
+      <string notr="true">font: 9pt &quot;SEGA LOGO FONT&quot;;</string>
      </property>
      <property name="text">
       <string>From:</string>
@@ -39,8 +30,7 @@ background-color: rgba(255, 255, 255, 0);</string>
    <item row="1" column="1">
     <widget class="QLabel" name="FromResult">
      <property name="styleSheet">
-      <string notr="true">font: 11pt &quot;Segoe UI&quot;;
-background-color: rgba(255, 255, 255, 0);</string>
+      <string notr="true">font: 9pt &quot;SEGA LOGO FONT&quot;;</string>
      </property>
      <property name="text">
       <string>TextLabel</string>
@@ -50,8 +40,7 @@ background-color: rgba(255, 255, 255, 0);</string>
    <item row="2" column="0">
     <widget class="QLabel" name="Tolabel">
      <property name="styleSheet">
-      <string notr="true">font: 11pt &quot;Segoe UI&quot;;
-background-color: rgba(255, 255, 255, 0);</string>
+      <string notr="true">font: 9pt &quot;SEGA LOGO FONT&quot;;</string>
      </property>
      <property name="text">
       <string>To:</string>
@@ -61,8 +50,7 @@ background-color: rgba(255, 255, 255, 0);</string>
    <item row="2" column="1">
     <widget class="QLabel" name="ToResult">
      <property name="styleSheet">
-      <string notr="true">font: 11pt &quot;Segoe UI&quot;;
-background-color: rgba(255, 255, 255, 0);</string>
+      <string notr="true">font: 9pt &quot;SEGA LOGO FONT&quot;;</string>
      </property>
      <property name="text">
       <string>TextLabel</string>
@@ -72,27 +60,63 @@ background-color: rgba(255, 255, 255, 0);</string>
    <item row="3" column="0">
     <widget class="QLabel" name="Pricelabel">
      <property name="styleSheet">
-      <string notr="true">font: 11pt &quot;Segoe UI&quot;;
-background-color: rgba(255, 255, 255, 0);</string>
+      <string notr="true">font: 9pt &quot;SEGA LOGO FONT&quot;;</string>
      </property>
      <property name="text">
       <string>Price:</string>
      </property>
     </widget>
    </item>
+   <item row="4" column="0" colspan="2">
+    <widget class="QTextEdit" name="textEdit">
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0" colspan="2">
+    <widget class="QToolButton" name="backtoolButton">
+     <property name="text">
+      <string>...</string>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="0">
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>Graph State: </string>
+     </property>
+    </widget>
+   </item>
    <item row="3" column="1">
     <widget class="QLabel" name="PriceResult">
      <property name="styleSheet">
-      <string notr="true">font: 11pt &quot;Segoe UI&quot;;
-background-color: rgba(255, 255, 255, 0);</string>
+      <string notr="true">font: 9pt &quot;SEGA LOGO FONT&quot;;</string>
      </property>
      <property name="text">
       <string>TextLabel</string>
      </property>
     </widget>
    </item>
-   <item row="4" column="0" colspan="2">
-    <widget class="QTextEdit" name="textEdit"/>
+   <item row="6" column="1">
+    <widget class="QLabel" name="label_2">
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="1">
+    <widget class="QLabel" name="label_3">
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>20</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>

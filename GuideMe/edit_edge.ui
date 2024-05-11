@@ -26,7 +26,7 @@
     <bool>false</bool>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #6c7a89, stop: 1 #bdc3c7);</string>
+    <string notr="true"/>
    </property>
    <layout class="QFormLayout" name="formLayout">
     <property name="sizeConstraint">
@@ -54,9 +54,7 @@
     <item row="1" column="0">
      <widget class="QLabel" name="label">
       <property name="styleSheet">
-       <string notr="true">font: 600 10pt &quot;Cascadia Mono SemiBold&quot;; color:black;
-background-color: rgba(255, 255, 255, 0);
-</string>
+       <string notr="true">font: 9pt &quot;SEGA LOGO FONT&quot;;</string>
       </property>
       <property name="text">
        <string>From:</string>
@@ -69,9 +67,7 @@ background-color: rgba(255, 255, 255, 0);
        <bool>false</bool>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(143, 143, 143); color: black;
-font: 600 10pt &quot;Cascadia Mono SemiBold&quot;;
-</string>
+       <string notr="true"/>
       </property>
       <property name="frame">
        <bool>true</bool>
@@ -81,9 +77,7 @@ font: 600 10pt &quot;Cascadia Mono SemiBold&quot;;
     <item row="2" column="0">
      <widget class="QLabel" name="label_2">
       <property name="styleSheet">
-       <string notr="true">font: 600 10pt &quot;Cascadia Mono SemiBold&quot;; color:black;
-background-color: rgba(255, 255, 255, 0);
-</string>
+       <string notr="true">font: 9pt &quot;SEGA LOGO FONT&quot;;</string>
       </property>
       <property name="text">
        <string>To:</string>
@@ -96,8 +90,7 @@ background-color: rgba(255, 255, 255, 0);
        <bool>false</bool>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(143, 143, 143); color:black;
-font: 600 10pt &quot;Cascadia Mono SemiBold&quot;;</string>
+       <string notr="true"/>
       </property>
      </widget>
     </item>
@@ -141,8 +134,7 @@ font: 600 10pt &quot;Cascadia Mono SemiBold&quot;;</string>
        <item>
         <widget class="QToolButton" name="TrainX">
          <property name="styleSheet">
-          <string notr="true">
-background-color: rgb(255, 0, 0);</string>
+          <string notr="true"/>
          </property>
          <property name="text">
           <string>✖</string>
@@ -152,8 +144,7 @@ background-color: rgb(255, 0, 0);</string>
        <item>
         <widget class="QLabel" name="trainLabel">
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(220, 220, 220);
-font: 600 9pt &quot;Cascadia Mono SemiBold&quot;;</string>
+          <string notr="true"/>
          </property>
          <property name="text">
           <string>Train</string>
@@ -163,8 +154,7 @@ font: 600 9pt &quot;Cascadia Mono SemiBold&quot;;</string>
        <item>
         <widget class="QLabel" name="TrainText">
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(220, 220, 220);
-font: 600 9pt &quot;Cascadia Mono SemiBold&quot;;</string>
+          <string notr="true"/>
          </property>
          <property name="text">
           <string>0</string>
@@ -211,7 +201,7 @@ font: 600 9pt &quot;Cascadia Mono SemiBold&quot;;</string>
        <item>
         <widget class="QToolButton" name="BusX">
          <property name="styleSheet">
-          <string notr="true">background-color:rgb(255, 0, 0);</string>
+          <string notr="true"/>
          </property>
          <property name="text">
           <string>✖</string>
@@ -221,8 +211,7 @@ font: 600 9pt &quot;Cascadia Mono SemiBold&quot;;</string>
        <item>
         <widget class="QLabel" name="busLabel">
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(220, 220, 220);
-font: 600 9pt &quot;Cascadia Mono SemiBold&quot;;</string>
+          <string notr="true"/>
          </property>
          <property name="text">
           <string>Bus</string>
@@ -232,8 +221,7 @@ font: 600 9pt &quot;Cascadia Mono SemiBold&quot;;</string>
        <item>
         <widget class="QLabel" name="BusText">
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(220, 220, 220);
-font: 600 9pt &quot;Cascadia Mono SemiBold&quot;;</string>
+          <string notr="true"/>
          </property>
          <property name="text">
           <string>0</string>
@@ -280,7 +268,7 @@ font: 600 9pt &quot;Cascadia Mono SemiBold&quot;;</string>
        <item>
         <widget class="QToolButton" name="MicrobusX">
          <property name="styleSheet">
-          <string notr="true">background-color:rgb(255, 0, 0);</string>
+          <string notr="true"/>
          </property>
          <property name="text">
           <string>✖</string>
@@ -290,8 +278,7 @@ font: 600 9pt &quot;Cascadia Mono SemiBold&quot;;</string>
        <item>
         <widget class="QLabel" name="microbusLabel">
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(220, 220, 220);
-font: 600 9pt &quot;Cascadia Mono SemiBold&quot;;</string>
+          <string notr="true"/>
          </property>
          <property name="text">
           <string>Microbus</string>
@@ -301,8 +288,7 @@ font: 600 9pt &quot;Cascadia Mono SemiBold&quot;;</string>
        <item>
         <widget class="QLabel" name="MicrobusText">
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(220, 220, 220);
-font: 600 9pt &quot;Cascadia Mono SemiBold&quot;;</string>
+          <string notr="true"/>
          </property>
          <property name="text">
           <string>0</string>
@@ -349,7 +335,7 @@ font: 600 9pt &quot;Cascadia Mono SemiBold&quot;;</string>
        <item>
         <widget class="QToolButton" name="MetroX">
          <property name="styleSheet">
-          <string notr="true">background-color:rgb(255, 0, 0);</string>
+          <string notr="true"/>
          </property>
          <property name="text">
           <string>✖</string>
@@ -359,8 +345,7 @@ font: 600 9pt &quot;Cascadia Mono SemiBold&quot;;</string>
        <item>
         <widget class="QLabel" name="metroLabel">
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(220, 220, 220);
-font: 600 9pt &quot;Cascadia Mono SemiBold&quot;;</string>
+          <string notr="true"/>
          </property>
          <property name="text">
           <string>Metro</string>
@@ -370,8 +355,7 @@ font: 600 9pt &quot;Cascadia Mono SemiBold&quot;;</string>
        <item>
         <widget class="QLabel" name="MetroText">
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(220, 220, 220);
-font: 600 9pt &quot;Cascadia Mono SemiBold&quot;;</string>
+          <string notr="true"/>
          </property>
          <property name="text">
           <string>0</string>
@@ -408,7 +392,7 @@ font: 600 9pt &quot;Cascadia Mono SemiBold&quot;;</string>
        <item>
         <widget class="QToolButton" name="UberX">
          <property name="styleSheet">
-          <string notr="true">background-color:rgb(255, 0, 0);</string>
+          <string notr="true"/>
          </property>
          <property name="text">
           <string>✖</string>
@@ -418,8 +402,7 @@ font: 600 9pt &quot;Cascadia Mono SemiBold&quot;;</string>
        <item>
         <widget class="QLabel" name="uberLabel">
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(220, 220, 220);
-font: 600 9pt &quot;Cascadia Mono SemiBold&quot;;</string>
+          <string notr="true"/>
          </property>
          <property name="text">
           <string>Uber</string>
@@ -429,8 +412,7 @@ font: 600 9pt &quot;Cascadia Mono SemiBold&quot;;</string>
        <item>
         <widget class="QLabel" name="UberText">
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(220, 220, 220);
-font: 600 9pt &quot;Cascadia Mono SemiBold&quot;;</string>
+          <string notr="true"/>
          </property>
          <property name="text">
           <string>0</string>
@@ -449,8 +431,7 @@ font: 600 9pt &quot;Cascadia Mono SemiBold&quot;;</string>
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color:rgb(0, 85, 127); color:white;
-font: 600 9pt &quot;Cascadia Mono SemiBold&quot;;</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string>+</string>
@@ -484,16 +465,14 @@ font: 600 9pt &quot;Cascadia Mono SemiBold&quot;;</string>
        <item>
         <widget class="QComboBox" name="AddcomboBox">
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(143, 143, 143); color:black;
-font: 600 10pt &quot;Cascadia Mono SemiBold&quot;;</string>
+          <string notr="true"/>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QLineEdit" name="AddText">
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(220, 220, 220);
-font: 600 9pt &quot;Cascadia Mono SemiBold&quot;;</string>
+          <string notr="true"/>
          </property>
         </widget>
        </item>
@@ -503,16 +482,14 @@ font: 600 9pt &quot;Cascadia Mono SemiBold&quot;;</string>
     <item row="3" column="1">
      <widget class="QLineEdit" name="newNodeText">
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(220, 220, 220);
-font: 600 9pt &quot;Cascadia Mono SemiBold&quot;;</string>
+       <string notr="true"/>
       </property>
      </widget>
     </item>
     <item row="10" column="1">
      <widget class="QPushButton" name="UpdateButton">
       <property name="styleSheet">
-       <string notr="true">background-color:rgb(255, 0, 0); color: white;
-font: 600 10pt &quot;Cascadia Mono SemiBold&quot;;</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string>Add/Update</string>
@@ -522,9 +499,7 @@ font: 600 10pt &quot;Cascadia Mono SemiBold&quot;;</string>
     <item row="3" column="0">
      <widget class="QLabel" name="label_3">
       <property name="styleSheet">
-       <string notr="true">font: 600 10pt &quot;Cascadia Mono SemiBold&quot;; color:black;
-background-color: rgba(255, 255, 255, 0);
-</string>
+       <string notr="true">font: 9pt &quot;SEGA LOGO FONT&quot;;</string>
       </property>
       <property name="text">
        <string>New Node:</string>

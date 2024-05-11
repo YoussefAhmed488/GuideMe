@@ -19,9 +19,9 @@ public:
     explicit Result_Window(QWidget *parent = nullptr);
 
     Graph* graph = Graph::getInstance();
-
+    void setGraphState();
     void on_next(QString from,QString to,QString price);
-
+    void dijkestra();
     void setting_result();
 
     ~Result_Window();

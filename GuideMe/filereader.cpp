@@ -27,7 +27,7 @@ FileReader::FileReader()
 void FileReader::readFile()
 {
 
-    ifstream file("F:/FCIS 2026/DS Project/GuideMe/GuideMe/build/Desktop_Qt_6_7_0_MSVC2019_64bit-Debug/TransportationMap.txt");
+    ifstream file("D:/FCIS/Sophomore/Second Semester/Data Structure/New folder/GuideMe/build/Desktop_Qt_6_7_0_MSVC2019_64bit-Debug/TransportationMap.txt");
     string content;
     graph->to_save.clear();
     graph->adj.clear();

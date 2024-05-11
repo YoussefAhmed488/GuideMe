@@ -8,6 +8,7 @@
 #include<string>
 #include"graph.h"
 #include"edit_edge.h"
+#include<QFontDatabase>
 using namespace std;
 
 MainWindow::MainWindow(QWidget *parent)
@@ -19,23 +20,11 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     //GUI Adjustments
-    ui->label->setStyleSheet("font-family: 'Segoe UI', 'Roboto', sans-serif; font-size: 16px; color: #333;");
     QPixmap pic1("D:/FCIS/Sophomore/Second Semester/Data Structure/New folder/GuideMe/png-clipart-travel-agent-american-express-global-business-travel-united-states-travel-agency-blue-text-removebg-preview.png");
     int Wpic1 = ui->pic_label->width();
     int hpic1 =  ui->pic_label->height();
     ui->pic_label->setPixmap(pic1.scaled(Wpic1,hpic1,Qt::KeepAspectRatio));
-    ui->label->setStyleSheet("background-color: rgba(255, 255, 255, 0);");
-    ui->pic_label->setStyleSheet("background-color: rgba(255, 255, 255, 0);");
-    ui->label_2->setStyleSheet("background-color: rgba(255, 255, 255, 0);");
-    ui->label_3->setStyleSheet("background-color: rgba(255, 255, 255, 0);");
-    ui->AlgoLabel->setStyleSheet("background-color: rgba(255, 255, 255, 0);");
-    ui->TextWelcome->setStyleSheet("background-color: rgba(255, 255, 255, 0);");
-    ui->radioButton->setStyleSheet("background-color: rgba(255, 255, 255, 0);");
 
-    //ComboBox Adjustments
-    ui->BfsRB->setStyleSheet("background-color: rgba(255, 255, 255, 0);");
-    ui->DfsRB->setStyleSheet("background-color: rgba(255, 255, 255, 0);");
-    ui->statusbar->setStyleSheet("background-color: rgba(255, 255, 255, 0);");
     QStringList listGovernments;
     listGovernments.clear();
     for(auto node: graph->adj){
@@ -63,6 +52,24 @@ void MainWindow::on_pushButton_clicked()
     bool dfs = ui->DfsRB->isChecked();
     bool dij = ui->radioButton->isChecked();
     int algo=0;
+    long double x =  2e9;
+    bool falsePrice=false;
+
+    QString text = ui->priceEdit->toPlainText();
+
+    for (int i = 0; i < text.size(); ++i) {
+
+        QChar currentChar = text.at(i); // Get the character at index i
+
+        if (currentChar.isDigit()) {
+            falsePrice=false;
+        } else {
+
+            falsePrice=true;
+            break;
+
+        }
+    }
 
     string start = ui->StartCombo->currentText().toStdString();
     string dest = ui->DestinationCombo->currentText().toStdString();
@@ -72,7 +79,16 @@ void MainWindow::on_pushButton_clicked()
     }
     else if (!ui->BfsRB->isChecked() && !ui->DfsRB->isChecked() && !ui->radioButton->isChecked()){
         ui->statusbar->showMessage("PLEASE SELECT ALGORITHM");
+    }else if(falsePrice==true){
+
+        ui->statusbar->showMessage("Please Enter a Valid Price");
+
+    }else if(text.length() > 8 ){
+
+        ui->statusbar->showMessage("Too Large, Please Enter a Valid Price");
+
     }
+
     else{
 
         if(bfs){
@@ -96,10 +112,12 @@ void MainWindow::on_pushButton_clicked()
 
         r.on_next(ui->StartCombo->currentText(),ui->DestinationCombo->currentText(),ui->priceEdit->toPlainText());
 
-        // sort(road.begin(),road.end());
-
+        if(ui->radioButton->isChecked()){
+            r.dijkestra();
+        }else{
         r.setting_result();
-
+        }
+        r.setGraphState();
         r.setWindowTitle("Result");
         r.setModal(true);
         r.exec();

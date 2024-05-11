@@ -36,19 +36,6 @@ void Graph::addEdge(string u, string v,string t,int cost)
     adj[v].push_back(e2); // Add v to u’s list.
 
 }
-Edge Graph::findEdge(vector<Edge> edges, string nodeName)
-{
-    Edge e2;
-    for (auto e : edges)
-    {
-        if (e.endNode == nodeName)
-        {
-            e2=e;
-            return e2;
-        }
-    }
-    return e2;
-}
 
 //Prints all paths from 's' to 'd'
 
@@ -72,11 +59,11 @@ void Graph::getAllPaths(string s, string d,int b)
     if(b==2){
 
         //Call the recursive function to print all paths
-        findAllPathsDFS("", s, d, visited, paths,path, path_index);
+        findAllPathsDFS( s, d, visited, paths,path, path_index);
     }
     if(b==3){
 
-        dijkstra(s,d);
+        dijkstra(d,s);
 
     }
 
@@ -143,7 +130,7 @@ void Graph::findAllPathsBFS(string source, string dest) {
 }
 
 //A recursive function to print all paths from 'u' to 'd'.
-void Graph::findAllPathsDFS(string prevNode,string u, string d, map<string, bool>visited ,
+void Graph::findAllPathsDFS(string u, string d, map<string, bool>visited ,
                             vector<Edge>paths,Edge path, int& path_index)
 {
     //Mark the current node as visited
@@ -171,7 +158,7 @@ void Graph::findAllPathsDFS(string prevNode,string u, string d, map<string, bool
         for (auto child : adj[u]) {
             if (!visited[child.endNode])
             {
-                findAllPathsDFS(u, child.endNode, d, visited, paths,child, path_index);
+                findAllPathsDFS( child.endNode, d, visited, paths,child, path_index);
             }
         }
     }
@@ -198,7 +185,6 @@ void Graph::dijkstra(string start,string end)
     while(!pq.empty())
     {
         //Getting The Best Choice To Try (top)
-        string s;
         node = pq.top().second;
         double cur_cost = -pq.top().first;
         pq.pop();
@@ -225,14 +211,17 @@ void Graph::dijkstra(string start,string end)
         }
     }
     int sum=0;
+    string s;
     if(!found)
-        cout <<"NOT Found \n";
+        s = "NOT Found \n";
     while (start != end and found) {
         sum+=parent[end].second.second;
-        cout <<"From "<< end <<" To "<< parent[end].first<<" by "<<parent[end].second.first <<" "<<parent[end].second.second<<" ";
+        s += "From " + end +" To "+ parent[end].first+" by "+parent[end].second.first +" "+ std::to_string(parent[end].second.second) + " ";
         end = parent[end].first;
     }
-    cout<<sum;
+    dijkestraCost = sum;
+
+    dijkestraRoad = s;
 }
 void Graph::updateEdgeCost(string start, string end, string type, int newCost)
 {
@@ -257,8 +246,19 @@ void Graph::deleteEdge(string start, string end, string type)
         {
             adj[end].erase(i);
             break;
- }
-}
+
+        }
+
+    }
+
+
+
+
+
+
+
+
+
 }
 
 bool Graph::isComplete()

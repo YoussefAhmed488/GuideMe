@@ -26,7 +26,7 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #6c7a89, stop: 1 #bdc3c7);</string>
+   <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QFormLayout" name="formLayout">
@@ -39,21 +39,24 @@
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true"/>
+       <string notr="true">font: 18pt &quot;SEGA LOGO FONT&quot;;</string>
       </property>
       <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt; font-weight:700;&quot;&gt;Welcome To SEGA Eastern Lines&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt; font-weight:700;&quot;&gt;Travel Agency&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;Welcome To SEGA&lt;br/&gt;Eastern Lines Travel Agency&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
     </item>
-    <item row="2" column="0">
+    <item row="1" column="0">
      <widget class="QLabel" name="label_2">
+      <property name="styleSheet">
+       <string notr="true">font: 9pt &quot;SEGA LOGO FONT&quot;;</string>
+      </property>
       <property name="text">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Pick Your Start Point:&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
     </item>
-    <item row="2" column="1">
+    <item row="1" column="1">
      <widget class="QComboBox" name="StartCombo">
       <property name="maximumSize">
        <size>
@@ -66,14 +69,17 @@
       </property>
      </widget>
     </item>
-    <item row="4" column="0">
+    <item row="3" column="0">
      <widget class="QLabel" name="label_3">
+      <property name="styleSheet">
+       <string notr="true">font: 9pt &quot;SEGA LOGO FONT&quot;;</string>
+      </property>
       <property name="text">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Pick Your Destination:&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
     </item>
-    <item row="4" column="1">
+    <item row="3" column="1">
      <widget class="QComboBox" name="DestinationCombo">
       <property name="maximumSize">
        <size>
@@ -86,35 +92,57 @@
       </property>
      </widget>
     </item>
-    <item row="10" column="1">
+    <item row="9" column="1">
      <widget class="QRadioButton" name="BfsRB">
+      <property name="styleSheet">
+       <string notr="true">font: 9pt &quot;SEGA LOGO FONT&quot;;</string>
+      </property>
       <property name="text">
        <string>BFS</string>
       </property>
      </widget>
     </item>
-    <item row="12" column="0">
+    <item row="10" column="1">
+     <widget class="QRadioButton" name="radioButton">
+      <property name="styleSheet">
+       <string notr="true">font: 9pt &quot;SEGA LOGO FONT&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Dijkestra</string>
+      </property>
+     </widget>
+    </item>
+    <item row="11" column="0">
      <widget class="QLabel" name="AlgoLabel">
+      <property name="styleSheet">
+       <string notr="true">font: 9pt &quot;SEGA LOGO FONT&quot;;</string>
+      </property>
       <property name="text">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Pick Algorithm:&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
     </item>
-    <item row="12" column="1">
+    <item row="11" column="1">
      <widget class="QRadioButton" name="DfsRB">
+      <property name="styleSheet">
+       <string notr="true">font: 9pt &quot;SEGA LOGO FONT&quot;;</string>
+      </property>
       <property name="text">
        <string>DFS</string>
       </property>
      </widget>
     </item>
-    <item row="19" column="0">
+    <item row="18" column="0">
      <widget class="QLabel" name="label">
+      <property name="styleSheet">
+       <string notr="true">font: 9pt &quot;SEGA LOGO FONT&quot;;</string>
+      </property>
       <property name="text">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Enter Your Preferred Price:&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
     </item>
-    <item row="19" column="1">
+    <item row="18" column="1">
      <widget class="QTextEdit" name="priceEdit">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
@@ -134,11 +162,21 @@
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(229, 229, 229);</string>
+       <string notr="true"/>
       </property>
      </widget>
     </item>
-    <item row="26" column="1">
+    <item row="24" column="0">
+     <widget class="QToolButton" name="editButton">
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="text">
+       <string>   Edit  </string>
+      </property>
+     </widget>
+    </item>
+    <item row="24" column="1">
      <widget class="QPushButton" name="pushButton">
       <property name="maximumSize">
        <size>
@@ -153,14 +191,14 @@
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 209, 130);</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string>Show Options</string>
       </property>
      </widget>
     </item>
-    <item row="27" column="0">
+    <item row="25" column="0">
      <widget class="QLabel" name="pic_label">
       <property name="minimumSize">
        <size>
@@ -179,20 +217,6 @@
       </property>
      </widget>
     </item>
-    <item row="11" column="1">
-     <widget class="QRadioButton" name="radioButton">
-      <property name="text">
-       <string>Dijkestra</string>
-      </property>
-     </widget>
-    </item>
-    <item row="26" column="0">
-     <widget class="QToolButton" name="editButton">
-      <property name="text">
-       <string>   Edit  </string>
-      </property>
-     </widget>
-    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -201,7 +225,7 @@
      <x>0</x>
      <y>0</y>
      <width>1065</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

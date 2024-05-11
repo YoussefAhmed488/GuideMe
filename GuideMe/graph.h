@@ -22,6 +22,9 @@ private:
     Graph();
 
 public:
+
+    string dijkestraRoad;
+    int dijkestraCost;
     unordered_map<string, vector<Edge>> adj;// hashtable as every cell contains vector of edges
         //adjacency lists
     map<int,vector<Edge>> road;
@@ -34,10 +37,9 @@ public:
 
     void addEdge(string u, string v, string t, int cost);
     // this fun choose which algorithms to use
-    void findAllPathsDFS(string, string, string, map<string, bool>visited, vector<Edge>, Edge, int&);
+    void findAllPathsDFS( string, string, map<string, bool>visited, vector<Edge>, Edge, int&);
     void getAllPaths(string s, string d,int b);
     void findAllPathsBFS(string source, string dest);
-    Edge findEdge(vector<Edge>, string fromName);
     void dijkstra(string source,string dest);
     void updateEdgeCost(string start, string end, string type, int newCost);
     void deleteEdge(string start, string end, string type);
