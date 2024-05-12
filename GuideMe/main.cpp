@@ -1,9 +1,6 @@
 #include "filereader.h"
 #include "mainwindow.h"
-#include<iostream>
-#include <fstream>
 #include <QApplication>
-//#include<bits\stdc++.h>
 #include<QFile>
 #include<QTextStream>
 #include<QMessageBox>
@@ -17,7 +14,7 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-    QFile stylesheetFile("D:/FCIS/Sophomore/Second Semester/Data Structure/New folder/GuideMe/Darkeum.qss");
+    QFile stylesheetFile(":/Darkeum.qss");
     stylesheetFile.open(QFile::ReadOnly);
     QString styleSheet = QLatin1String(stylesheetFile.readAll());
     a.setStyleSheet(styleSheet);
@@ -25,8 +22,9 @@ int main(int argc, char *argv[])
     FileReader f;
     f.readFile();
     MainWindow w;
-
-
+    w.setWindowTitle("Welcome Page");
+    QIcon appIcon(":/home-page.png");
+    w.setWindowIcon(appIcon);
     w.setGeometry(270, 70, 1065, 250);
     w.show();
 

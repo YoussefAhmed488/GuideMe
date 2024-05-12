@@ -6,8 +6,6 @@
 //#include<bits\stdc++.h>
 #include<QFile>
 #include<QTextStream>
-#include <Qstring>
-#include "edge.h"
 #include "graph.h"
 #include<QMessageBox>
 #include <QCoreApplication>
@@ -27,17 +25,13 @@ FileReader::FileReader()
 void FileReader::readFile()
 {
 
-    ifstream file("D:/FCIS/Sophomore/Second Semester/Data Structure/New folder/GuideMe/build/Desktop_Qt_6_7_0_MSVC2019_64bit-Debug/TransportationMap.txt");
+    ifstream file("D:/visual studio projects/Ds_Project/GuideMe/GuideMe/build/Desktop_Qt_6_7_0_MSVC2019_64bit-Debug/TransportationMap.txt");
     string content;
     graph->to_save.clear();
     graph->adj.clear();
     if (file.is_open()) { // Check if file is open
         string line;
         getline(file, line);
-        int num;
-        num = stoi(line);
-       // cout << num << endl;
-
         while (getline(file, line)) { // Read the file line by line
 
             istringstream str(line);
@@ -52,20 +46,15 @@ void FileReader::readFile()
             // Removing leading and trailing spaces
             city1.erase(city1.find_last_not_of(" ") + 1);
             city2.erase(0, city2.find_first_not_of(" "));
-            //cout << "<"<< ignore << ">";
-           // cout << city1 << " - " << city2 << " ";
-
 
             while (str >> trans_info) {
                 string s = trans_info;
                 float cost;
                 str >> cost;
-               // cout << trans_info << " " << cost << " ";
                 graph->addEdge(city1, city2, trans_info,cost);
 
             }
 
-           // cout << endl;
         }
 
     }
@@ -74,19 +63,12 @@ void FileReader::readFile()
         return;
     }
     file.close(); // Close the file
-     // std::cout << "Content of the file:\n" << content << std::endl;
-
-     // string s = "Cairo", d = "Dahab";
-     // cout << "Following are all different paths from " << s
-     //      << " to " << d << endl;
-
-     // g->getAllPaths(s, d,1);
 
 }
 void FileReader::savefile()
 {
     graph->returnToFile();
-    QFile file("F:/FCIS 2026/DS Project/GuideMe/GuideMe/build/Desktop_Qt_6_7_0_MSVC2019_64bit-Debug/output.txt");
+    QFile file("D:/visual studio projects/Ds_Project/GuideMe/GuideMe/build/Desktop_Qt_6_7_0_MSVC2019_64bit-Debug/output.txt");
     if(file.open(QIODevice::Truncate | QIODevice::ReadWrite))
     {
         QTextStream stream(&file);

@@ -1,14 +1,12 @@
-#include <iostream>
+
 #include<queue>
-#include <fstream>
 #include <unordered_map>
 #include <map>
 #include<set>
 #include <vector>
 #include "edge.h"
 #include "graph.h"
-#include"mainwindow.h"
-#include <sstream>
+
 
 using namespace std;
 
@@ -22,11 +20,7 @@ Graph* Graph::getInstance() {
     return instance;
 }
 
-// Private constructor definition (empty, since private and no other logic is needed)
-Graph::Graph() {
-    // Initialization code here if necessary.
-    // For instance, if there were any default values or setup needed for the adjacency list or costs.
-}
+Graph::Graph() {}
 
 void Graph::addEdge(string u, string v,string t,int cost)
 {
@@ -62,9 +56,7 @@ void Graph::getAllPaths(string s, string d,int b)
         findAllPathsDFS( s, d, visited, paths,path, path_index);
     }
     if(b==3){
-
         dijkstra(d,s);
-
     }
 
 }
@@ -96,7 +88,6 @@ void Graph::findAllPathsBFS(string source, string dest) {
         if (last == dest)
         {
             string s;
-            int sz = (int)path.size();//(int) fix warning
             float sumCost = 0;
             for (auto e : pathEdge)
             {
@@ -162,8 +153,6 @@ void Graph::findAllPathsDFS(string u, string d, map<string, bool>visited ,
             }
         }
     }
-
-
     //mark current node as unvisited
     path_index--;
     visited[u] = false;
@@ -206,7 +195,6 @@ void Graph::dijkstra(string start,string end)
                 pq.push({-cost[child.endNode],child.endNode});
                 if(end == child.endNode)
                     found = 1;
-
             }
         }
     }
@@ -220,7 +208,6 @@ void Graph::dijkstra(string start,string end)
         end = parent[end].first;
     }
     dijkestraCost = sum;
-
     dijkestraRoad = s;
 }
 void Graph::updateEdgeCost(string start, string end, string type, int newCost)
@@ -230,7 +217,6 @@ void Graph::updateEdgeCost(string start, string end, string type, int newCost)
 }
 void Graph::deleteEdge(string start, string end, string type)
 {
-    //for(auto i : adj[start])
     for(auto i = adj[start].begin(); i != adj[start].end(); i++)
     {
         if(i->endNode == end && i->vehicle == type)
@@ -239,7 +225,6 @@ void Graph::deleteEdge(string start, string end, string type)
             break;
         }
     }
-    //for(auto i : adj[end])
     for(auto i = adj[end].begin(); i != adj[end].end(); i++)
     {
         if(i->endNode == start && i->vehicle == type)
@@ -251,28 +236,13 @@ void Graph::deleteEdge(string start, string end, string type)
 
     }
 
-
-
-
-
-
-
-
-
 }
 
 bool Graph::isComplete()
 {
     int n = adj.size();
-    // for (auto i : adj)
-    //     cout << "node: " << i.first << " children: " << i.second.size() << endl;
-    // for(auto i : adj["a"])
-    // {
-    //     cout << "child: " << i.endNode << endl;
-    // }
     for (auto i : adj)
     {
-        //cout << "size: " <<  i.second.size() << endl;
         set<string> s;
         for (auto j : i.second)
             s.insert(j.endNode);
@@ -318,13 +288,3 @@ void Graph::returnToFile()
 
 }
 
-void Graph::printGraph()
-{
-    for(auto i : adj)
-    {
-        cout << i.first << ": ";
-        for (auto j : i.second)
-            cout << j.endNode << " ";
-        cout << endl;
-    }
-}

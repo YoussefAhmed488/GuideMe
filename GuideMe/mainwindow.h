@@ -16,31 +16,15 @@ class MainWindow : public QMainWindow
 
 public:
     MainWindow(QWidget *parent = nullptr);
-
-    Graph* graph = Graph::getInstance();
-
-    FileReader filesave;
-
-    map<int,vector<Edge>> road;
-
     ~MainWindow();
+    Graph* graph = Graph::getInstance(); // Instance of the Graph class
+    FileReader filesave;
+    map<int,vector<Edge>> road;
 
 private slots:
 
-    // Instance of the Graph class
     void on_pushButton_clicked();
-
-    //  void on_StartCombo_currentTextChanged(const QString &arg1);
-
-
-
-
-    void on_BfsRB_clicked();
-
-    void on_DfsRB_clicked();
-
     void on_StartCombo_currentIndexChanged(int index);
-
     void on_editButton_clicked();
     void closeEvent(QCloseEvent *event) override {
         // Call your function here

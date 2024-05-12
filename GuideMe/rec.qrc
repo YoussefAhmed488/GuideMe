@@ -10,5 +10,9 @@
     <qresource prefix="/">
         <file>edit_icon_2.png</file>
         <file>back-button.png</file>
+        <file>home-page.png</file>
+        <file>search-results.png</file>
+        <file>Darkeum.qss</file>
+        <file>png-clipart-travel-agent-american-express-global-business-travel-united-states-travel-agency-blue-text-removebg-preview.png</file>
     </qresource>
 </RCC>

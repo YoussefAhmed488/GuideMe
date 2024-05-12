@@ -39,10 +39,11 @@
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">font: 18pt &quot;SEGA LOGO FONT&quot;;</string>
+       <string notr="true">color: rgb(0, 0, 127);
+font: 18pt &quot;SEGA LOGO FONT&quot;;</string>
       </property>
       <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;Welcome To SEGA&lt;br/&gt;Eastern Lines Travel Agency&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Welcome  To  SEGA&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;Eastern  Lines  Travel  Agency&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
     </item>
@@ -63,6 +64,11 @@
         <width>300</width>
         <height>30</height>
        </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+       </font>
       </property>
       <property name="styleSheet">
        <string notr="true">background-color: rgb(143, 143, 143);</string>
@@ -86,6 +92,11 @@
         <width>300</width>
         <height>30</height>
        </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+       </font>
       </property>
       <property name="styleSheet">
        <string notr="true">background-color: rgb(143, 143, 143);</string>
@@ -153,16 +164,17 @@
       <property name="maximumSize">
        <size>
         <width>300</width>
-        <height>50</height>
+        <height>40</height>
        </size>
       </property>
       <property name="font">
        <font>
-        <pointsize>16</pointsize>
+        <pointsize>14</pointsize>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true"/>
+       <string notr="true">background-color: rgb(143, 143, 143);
+color:rgb(255, 255, 255);</string>
       </property>
      </widget>
     </item>
@@ -225,7 +237,7 @@
      <x>0</x>
      <y>0</y>
      <width>1065</width>
-     <height>26</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>

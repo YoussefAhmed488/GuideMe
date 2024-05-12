@@ -12,29 +12,27 @@ Result_Window::Result_Window(QWidget *parent)
 
 {
     ui->setupUi(this);
-    //ui->toolButton->setIcon(QIcon(":/edit_icon_2.png"));
-    QSize iconSize(25, 25); // Adjust the size as needed
-    //ui->toolButton->setIconSize(iconSize);
+
+    QSize iconSize(25, 25);
     ui->backtoolButton->setIcon(QIcon(":/back-button.png"));
     ui->backtoolButton->setIconSize(iconSize);
     ui->textEdit->clear();
-
 
 }
 
 void Result_Window::setGraphState(){
 
     if(graph->isComplete()==true){
-        ui->label_2->setText("Graph is Complete");
+        ui->label_2->setText("Complete");
     }
     else
-        ui->label_2->setText("Graph is not Complete");
+        ui->label_2->setText("Not  Complete");
 
     if(graph->isConnected()==true){
-        ui->label_3->setText("Graph is Connected");
+        ui->label_3->setText("Connected");
     }
     else
-        ui->label_3->setText("Graph is not Connected");
+        ui->label_3->setText("Not  Connected");
 
 
 }
@@ -77,7 +75,6 @@ void Result_Window::dijkestra(){
 
     QString priceText = ui->PriceResult->text();
     int number = priceText.toInt();
-
     if(number >= graph->dijkestraCost){
 
         QString qPath = QString::fromStdString(graph->dijkestraRoad);
@@ -101,23 +98,14 @@ Result_Window::~Result_Window()
 }
 
 
-void Result_Window::on_toolButton_clicked()
-{
-    Result_Window::hide();
-    QIcon appIcon(":/edit_icon_2.png");
-    Edit_Edge e;
-    e.setWindowTitle("Edit Edges");
-    e.setWindowIcon(appIcon);
-    e.setModal(true);
-    e.exec();
-}
-
-
 void Result_Window::on_backtoolButton_clicked()
 {
     Result_Window::hide();
     MainWindow *mainWindow = new MainWindow();
-    mainWindow->setGeometry(600, 250, 0, 0);
+    QIcon appIcon(":/home-page.png");
+    mainWindow->setWindowIcon(appIcon);
+   mainWindow->setWindowTitle("Welcome Page");
+    mainWindow->setGeometry(270, 70, 1065, 250);
     mainWindow->show();
 }
 void Result_Window::on_next(QString from,QString to,QString price){

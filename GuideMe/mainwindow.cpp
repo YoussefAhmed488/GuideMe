@@ -3,7 +3,6 @@
 #include<QPixmap>
 #include<QIcon>
 #include<QString>
-#include<iostream>
 #include"result_window.h"
 #include<string>
 #include"graph.h"
@@ -20,10 +19,15 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     //GUI Adjustments
-    QPixmap pic1("D:/FCIS/Sophomore/Second Semester/Data Structure/New folder/GuideMe/png-clipart-travel-agent-american-express-global-business-travel-united-states-travel-agency-blue-text-removebg-preview.png");
+    QPixmap pic1(":/png-clipart-travel-agent-american-express-global-business-travel-united-states-travel-agency-blue-text-removebg-preview.png");
     int Wpic1 = ui->pic_label->width();
     int hpic1 =  ui->pic_label->height();
     ui->pic_label->setPixmap(pic1.scaled(Wpic1,hpic1,Qt::KeepAspectRatio));
+
+    QIcon icon(":/edit_icon_2.png"); // Provide the path to your icon file
+    ui->editButton->setIcon(icon);
+    QSize iconSize(25, 25);
+    ui->editButton->setIconSize(iconSize);
 
     QStringList listGovernments;
     listGovernments.clear();
@@ -44,15 +48,12 @@ MainWindow::~MainWindow()
 }
 
 
-
-
 void MainWindow::on_pushButton_clicked()
 {
     bool bfs = ui->BfsRB->isChecked();
     bool dfs = ui->DfsRB->isChecked();
     bool dij = ui->radioButton->isChecked();
     int algo=0;
-    long double x =  2e9;
     bool falsePrice=false;
 
     QString text = ui->priceEdit->toPlainText();
@@ -77,7 +78,7 @@ void MainWindow::on_pushButton_clicked()
     if(ui->priceEdit->toPlainText().isEmpty()){
         ui->statusbar->showMessage("PLEASE ENTER PRICE");
     }
-    else if (!ui->BfsRB->isChecked() && !ui->DfsRB->isChecked() && !ui->radioButton->isChecked()){
+    else if (!bfs && !dfs && !dij){
         ui->statusbar->showMessage("PLEASE SELECT ALGORITHM");
     }else if(falsePrice==true){
 
@@ -118,26 +119,15 @@ void MainWindow::on_pushButton_clicked()
         r.setting_result();
         }
         r.setGraphState();
-        r.setWindowTitle("Result");
+        r.setWindowTitle("Result Page");
+        QIcon appIcon(":/search-results.png");
+        r.setWindowIcon(appIcon);
         r.setModal(true);
         r.exec();
     }
     //the rest of the save and the opening of the second window
 
 }
-
-
-
-void MainWindow::on_BfsRB_clicked()
-{
-
-}
-
-void MainWindow::on_DfsRB_clicked()
-{
-
-}
-
 
 void MainWindow::on_StartCombo_currentIndexChanged(int index)
 {

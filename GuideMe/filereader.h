@@ -1,8 +1,6 @@
 #ifndef FILEREADER_H
 #define FILEREADER_H
-#include <string>
 #include <QApplication>
-//#include<bits\stdc++.h>
 #include<QFile>
 #include<QTextStream>
 #include<QMessageBox>

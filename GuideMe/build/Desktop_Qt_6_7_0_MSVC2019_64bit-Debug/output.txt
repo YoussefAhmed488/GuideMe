@@ -1,6 +1,7 @@
-5
+6
 Asyut - Cairo Bus 450 Train 250 
 BeniSuef - Cairo Bus 15 Microbus 20 
 BeniSuef - Dahab Bus 315 Microbus 200 
+Cairo - Damnhour Train 200 
 Cairo - Giza Bus 60 Metro 30 Uber 230 
 Dahab - Giza Bus 500 Microbus 345 

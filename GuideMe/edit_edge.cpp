@@ -1,6 +1,5 @@
 #include "edit_edge.h"
 #include "ui_edit_edge.h"
-#include "result_window.h"
 #include "mainwindow.h"
 #include <sstream>
 //using namespace std;
@@ -87,16 +86,6 @@ void Edit_Edge::on_click5()
     string vehicle = ui->uberLabel->text().toStdString();
 
     graph->deleteEdge(from,to,vehicle);
-}
-
-void Edit_Edge::on_submit()
-{
-    ui->FromcomboBox->setCurrentIndex(0);
-    on_start();
-    on_ToCombobox();
-    ui->AddText->clear();
-    ui->AddcomboBox->setCurrentIndex(0);
-    Added = false;
 }
 
 void Edit_Edge::on_update()
@@ -279,7 +268,6 @@ void Edit_Edge::on_start()
     ui->toolButton->setIcon(QIcon(":/back-button.png"));
     QSize iconSize(25, 25); // Adjust the size as needed
     ui->toolButton->setIconSize(iconSize);
-    on_load();
 }
 
 void Edit_Edge::on_combobox()
@@ -307,19 +295,14 @@ void Edit_Edge::on_ToCombobox()
     ui->TocomboBox->addItems(listCountriesTo);
 }
 
-void Edit_Edge::on_load()
-{
-
-}
-
-void Edit_Edge::on_next()
-{
-}
-
 void Edit_Edge::on_toolButton_clicked()
 {
     Edit_Edge::hide();
     MainWindow *mainWindow = new MainWindow();
+    mainWindow->setWindowTitle("Welcome Page");
+    QIcon appIcon(":/home-page.png");
+    mainWindow->setWindowIcon(appIcon);
+    mainWindow->setGeometry(270, 70, 1065, 250);
     mainWindow->show();
 }
 
@@ -371,11 +354,6 @@ Edit_Edge::~Edit_Edge()
     delete ui;
 }
 ///////////////////////////////////////////////////
-void Edit_Edge::on_FromcomboBox_activated(int index)
-{
-
-}
-
 
 void Edit_Edge::on_AddButton_clicked()
 {

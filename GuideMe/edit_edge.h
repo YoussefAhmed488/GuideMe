@@ -20,7 +20,6 @@ public:
     void on_connect();
     void on_start();
     void on_combobox();
-    void on_load();
 private slots:
     void on_comboBox_currentIndexChanged();
     void on_add();
@@ -29,15 +28,9 @@ private slots:
     void on_click3();
     void on_click4();
     void on_click5();
-    void on_submit();
     void on_update();
-    void on_next();
     void on_toolButton_clicked();
-
     void on_TocomboBox_currentIndexChanged(int index);
-
-    void on_FromcomboBox_activated(int index);
-
     void on_AddButton_clicked();
 
 private:
