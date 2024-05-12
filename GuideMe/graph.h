@@ -1,9 +1,7 @@
 #ifndef GRAPH_H
 #define GRAPH_H
 #pragma once
-#include <iostream>
-#include<queue>
-#include <fstream>
+
 #include <unordered_map>
 #include <map>
 #include<set>
@@ -28,7 +26,7 @@ public:
 
     unordered_map<string, vector<Edge>> adj;// hashtable as every cell contains vector of edges , and adjacency lists
     map<int,vector<Edge>> road;
-    unordered_map<string,float>cost; //Cost for Dijkstra
+    unordered_map<string,int>cost; //Cost for Dijkstra
     map<pair<string,string>,set<pair<string,int>>>to_save;
 
     void getAllPaths(string s, string d,int b); // this fun choose which algorithms to use

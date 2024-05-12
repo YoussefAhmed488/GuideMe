@@ -2,7 +2,7 @@
 #include "ui_edit_edge.h"
 #include "mainwindow.h"
 #include <sstream>
-//using namespace std;
+
 
 Edit_Edge::Edit_Edge(QWidget *parent) :
     QDialog(parent),
@@ -90,7 +90,7 @@ void Edit_Edge::on_click5()
 
 void Edit_Edge::on_update()
 {
-    if (Added && !(ui->AddText->text().isEmpty())) {
+    if (!(ui->AddText->text().isEmpty())) {
         if (ui->AddcomboBox->currentText() == "Train") {
             ui->TrainWidget->show();
 
@@ -219,7 +219,6 @@ void Edit_Edge::on_update()
 
 
         }
-        Added=false;
     }
     else if(!(ui->newNodeText->text().isEmpty())){
         graph->adj[ui->newNodeText->text().toStdString()];

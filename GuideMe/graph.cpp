@@ -46,12 +46,9 @@ void Graph::getAllPaths(string s, string d,int b)
     if(b==1){
 
         // Call the iterative function to print all paths
-
         findAllPathsBFS(s, d);
-
     }
     if(b==2){
-
         //Call the recursive function to print all paths
         findAllPathsDFS( s, d, visited, paths,path, path_index);
     }
@@ -88,7 +85,7 @@ void Graph::findAllPathsBFS(string source, string dest) {
         if (last == dest)
         {
             string s;
-            float sumCost = 0;
+            int sumCost = 0;
             for (auto e : pathEdge)
             {
                 s += e.startNode + " (" + e.vehicle+ ") ";
@@ -133,7 +130,7 @@ void Graph::findAllPathsDFS(string u, string d, map<string, bool>visited ,
 
     //If current vertex is same as destination
     if (u == d) {
-        float sum_cost = 0;
+        int sum_cost = 0;
         for (int i = 0; i < path_index - 1; i++) {
             s= paths[i].startNode + " (" + paths[i].vehicle + ") ";
             sum_cost += paths[i].cost;
@@ -162,7 +159,7 @@ void Graph::dijkstra(string start,string end)
 {
     bool found = 0;
     string node;
-    priority_queue<pair<float,string>>pq;
+    priority_queue<pair<int,string>>pq;
     unordered_map<string,pair<string,pair<string,int>>>parent;
     //Max The Distance
     for(auto i : adj)
@@ -175,7 +172,7 @@ void Graph::dijkstra(string start,string end)
     {
         //Getting The Best Choice To Try (top)
         node = pq.top().second;
-        double cur_cost = -pq.top().first;
+        int cur_cost = -pq.top().first;
         pq.pop();
 
         //If Found Better path Continue
@@ -201,7 +198,7 @@ void Graph::dijkstra(string start,string end)
     int sum=0;
     string s;
     if(!found)
-        s = "NOT Found \n";
+        s = "NO Paths Found \n";
     while (start != end and found) {
         sum+=parent[end].second.second;
         s += "From " + end +" To "+ parent[end].first+" by "+parent[end].second.first +" "+ std::to_string(parent[end].second.second) + " ";

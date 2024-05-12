@@ -38,35 +38,44 @@ void Result_Window::setGraphState(){
 }
 void Result_Window::setting_result() {
 
-    if((ui->PriceResult->text()).toInt() > graph->road.begin()->first){
-    for (auto it : graph->road) {
+    if(graph->road.begin()->first==0){
 
-        QString priceText = ui->PriceResult->text();
-        std::string price = priceText.toStdString();
+        QString qPath = "No Paths Found!";
 
-
-        if(stoi(price)<it.first){
-            continue;
-        }
-
-        for (auto i : it.second ) {
-
-
-            QString qPath = QString::fromStdString("From " + i.startNode + " to " + i.endNode + ", taking a " + i.vehicle + " costs " + std::to_string((int)i.cost))+"  ";
-
-            ui->textEdit->insertPlainText(qPath);
-
-    }
-
-    ui->textEdit->insertPlainText(QString::fromStdString(" Which will cost you totally " +to_string(it.first))+"  ");
-    ui->textEdit->append(QString::fromStdString("\n"));
-
-    }
+        ui->textEdit->insertPlainText(qPath);
     }
     else{
-        ui->textEdit->insertPlainText("Low Price");
-    }
 
+        if((ui->PriceResult->text()).toInt() > graph->road.begin()->first){
+            for (auto it : graph->road) {
+
+                QString priceText = ui->PriceResult->text();
+                std::string price = priceText.toStdString();
+
+
+                if(stoi(price)<it.first){
+                    continue;
+                }
+
+                for (auto i : it.second ) {
+
+
+                    QString qPath = QString::fromStdString("From " + i.startNode + " to " + i.endNode + ", taking a " + i.vehicle + " costs " + std::to_string((int)i.cost))+"  ";
+
+                    ui->textEdit->insertPlainText(qPath);
+
+                }
+
+                ui->textEdit->insertPlainText(QString::fromStdString(" Which will cost you totally " +to_string(it.first))+"  ");
+                ui->textEdit->append(QString::fromStdString("\n"));
+
+            }
+        }
+
+        else{
+            ui->textEdit->insertPlainText("Low Price");
+        }
+    }
     graph->road.clear();
 
 }

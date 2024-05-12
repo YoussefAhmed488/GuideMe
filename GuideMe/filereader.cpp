@@ -3,7 +3,6 @@
 #include <string>
 #include <iostream>
 #include <QApplication>
-//#include<bits\stdc++.h>
 #include<QFile>
 #include<QTextStream>
 #include "graph.h"
@@ -24,8 +23,8 @@ FileReader::FileReader()
 
 void FileReader::readFile()
 {
-
-    ifstream file("D:/visual studio projects/Ds_Project/GuideMe/GuideMe/build/Desktop_Qt_6_7_0_MSVC2019_64bit-Debug/TransportationMap.txt");
+    string s = "TransportationMap.txt";
+    ifstream file("D:/visual studio projects/Ds_Project/GuideMe/GuideMe/build/Desktop_Qt_6_7_0_MSVC2019_64bit-Debug/"+s);
     string content;
     graph->to_save.clear();
     graph->adj.clear();
@@ -36,7 +35,6 @@ void FileReader::readFile()
 
             istringstream str(line);
             string city1, city2, trans_info, ignore;
-            //cout << line << endl; // Print the current line
 
             //Extract cities and split
             getline(str, city1, '-');
@@ -67,8 +65,9 @@ void FileReader::readFile()
 }
 void FileReader::savefile()
 {
+    QString s = "TransportationMap.txt";
     graph->returnToFile();
-    QFile file("D:/visual studio projects/Ds_Project/GuideMe/GuideMe/build/Desktop_Qt_6_7_0_MSVC2019_64bit-Debug/output.txt");
+    QFile file("D:/visual studio projects/Ds_Project/GuideMe/GuideMe/build/Desktop_Qt_6_7_0_MSVC2019_64bit-Debug/"+s);
     if(file.open(QIODevice::Truncate | QIODevice::ReadWrite))
     {
         QTextStream stream(&file);

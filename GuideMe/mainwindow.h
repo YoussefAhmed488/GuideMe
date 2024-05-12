@@ -1,7 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 #include"graph.h"
-
 #include <QMainWindow>
 #include "filereader.h"
 QT_BEGIN_NAMESPACE
