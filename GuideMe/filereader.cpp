@@ -13,6 +13,7 @@
 #include <QDebug>
 #include <sstream>
 #include<string>
+#include<bits/stdc++.h>
 #include "QFile"
 #include "graph.h"
 using namespace std;
@@ -25,7 +26,7 @@ FileReader::FileReader()
 void FileReader::readFile()
 {
 
-    ifstream file("D:/visual studio projects/Ds_Project/GuideMe/GuideMe/build/Desktop_Qt_6_7_0_MSVC2019_64bit-Debug/TransportationMap.txt");
+    ifstream file("D:/FCIS/Sophomore/Second Semester/Data Structure/New folder/GuideMe/build/Desktop_Qt_6_7_0_MSVC2019_64bit-Debug/TransportationMap.txt");
     string content;
     graph->to_save.clear();
     graph->adj.clear();
@@ -68,7 +69,7 @@ void FileReader::readFile()
 void FileReader::savefile()
 {
     graph->returnToFile();
-    QFile file("D:/visual studio projects/Ds_Project/GuideMe/GuideMe/build/Desktop_Qt_6_7_0_MSVC2019_64bit-Debug/output.txt");
+    QFile file("D:/FCIS/Sophomore/Second Semester/Data Structure/New folder/GuideMe/build/Desktop_Qt_6_7_0_MSVC2019_64bit-Debug/output.txt");
     if(file.open(QIODevice::Truncate | QIODevice::ReadWrite))
     {
         QTextStream stream(&file);

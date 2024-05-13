@@ -38,6 +38,14 @@ void Result_Window::setGraphState(){
 }
 void Result_Window::setting_result() {
 
+    if(graph->road.begin()->first==0){
+
+        QString qPath = "No Paths Found!";
+
+        ui->textEdit->insertPlainText(qPath);
+    }
+    else{
+
     if((ui->PriceResult->text()).toInt() > graph->road.begin()->first){
     for (auto it : graph->road) {
 
@@ -63,10 +71,11 @@ void Result_Window::setting_result() {
 
     }
     }
+
     else{
         ui->textEdit->insertPlainText("Low Price");
     }
-
+    }
     graph->road.clear();
 
 }
@@ -82,8 +91,9 @@ void Result_Window::dijkestra(){
 
     QString costString = QString::number(graph->dijkestraCost);
 
+    if(graph->dijkestraCost != 0){
     ui->textEdit->insertPlainText(" Which will cost you totally " + costString+"  "+"(This is The Shortest Path)");
-
+    }
     ui->textEdit->append(QString::fromStdString("\n"));
 
     graph->dijkestraRoad.clear();
